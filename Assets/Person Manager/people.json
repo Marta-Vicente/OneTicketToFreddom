@@ -1,0 +1,94 @@
+{
+    "people": [
+        {
+            "characterName": "Ivan",
+            "age": 6,
+            "threatLevel": 0,
+            "threatLevelJustification": "No one will notice a homeless boy is missing.",
+            "healthStatus": 3,
+            "healthStatusDescription": "Very malnourished.",
+            "description": "Orphan - his parents died in an accident so he has no one to take care of him. He steals to eat."
+        },
+        {
+            "characterName": "Iolanda",
+            "age": 25,
+            "threatLevel": 3,
+            "threatLevelJustification": "Her advanced pregnancy status may lead to further complications.",
+            "healthStatus": 2,
+            "healthStatusDescription": "Pregnant.",
+            "description": "She wishes to flee, but her husband must stay behind not to attract attention."
+        },
+        {
+            "characterName": "Lucius",
+            "age": 53,
+            "threatLevel": 2,
+            "threatLevelJustification": "Very methodic in day-to-day life, people may notice changes in his routine.",
+            "healthStatus": 1,
+            "healthStatusDescription": "Back pain.",
+            "description": "Accountant. He wishes to flee and go living with his sister who lives in Aethel."
+        },
+        {
+            "characterName": "Letícia",
+            "age": 90,
+            "threatLevel": 3,
+            "threatLevelJustification": "Due to her mental state, she may start telling other people about the plan. She may have a psychological outbreak.",
+            "healthStatus": 4,
+            "healthStatusDescription": "Although she is physically well, her mental state is very affected.",
+            "description": "Married to Tom. She will only flee if her husband goes with her. She's her husband's caregiver."
+        },
+        {
+            "characterName": "Vera",
+            "age": 36,
+            "threatLevel": null,
+            "threatLevelJustification": null,
+            "healthStatus": null,
+            "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms started 2 days after her daughter's.",
+            "description": "Bianca's mother. She wishes to flee so that her daughter may grow up in a free world."
+        },
+        {
+            "characterName": "Alana",
+            "age": 19,
+            "threatLevel": 1,
+            "threatLevelJustification": "Besides her parents, no one knows her fleeing intentions.",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "She wishes to flee to freely enter University education and to start her adult life as a free woman."
+        },
+        {
+            "characterName": "James",
+            "age": 32,
+            "threatLevel": null,
+            "threatLevelJustification": "Nothing may happen or he can die any moment due to his disease.",
+            "healthStatus": 0,
+            "healthStatusDescription": "He has a rare disease which might have a 10% chance of being healed by a specialist.",
+            "description": "Single with nobody waiting for him on the other side."
+        },
+        {
+            "characterName": "Tom",
+            "age": 87,
+            "threatLevel": 1,
+            "threatLevelJustification": "Wheelchair may atract attention.",
+            "healthStatus": 4,
+            "healthStatusDescription": "His only option to heal physically is to leave and go to a specialized hospital.",
+            "description": "Married to Letícia. Very reduced mobility (stucked to a wheelchair). He will only flee if his wife goes with him."
+        },
+        {
+            "characterName": "Bianca",
+            "age": 13,
+            "threatLevel": null,
+            "threatLevelJustification": null,
+            "healthStatus": null,
+            "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms have been getting worse.",
+            "description": "Vera's daughter. Must be with her mother."
+        },
+        {
+            "characterName": "Pietro",
+            "age": 42,
+            "threatLevel": 5,
+            "threatLevelJustification": "Authorities have him under surveillance.",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "He belongs to the opposition and has been publishing clandestine messages against the government which bring hope to people."
+        }
+    ]
+}
