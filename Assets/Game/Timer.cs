@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class Timer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 20f;
+    float startingTime = 15f;
 
-    [SerializeField] TextMeshProUGUI countdown;
+    [SerializeField] Text countdown;
 
     void Start()
     {
@@ -21,7 +20,7 @@ public class Timer : MonoBehaviour
 
     {
         currentTime -= 1 * Time.deltaTime;
-        countdown.text = currentTime.ToString("0");
+        countdown.text = "Remaining Time: " + currentTime.ToString("0");
 
         if (currentTime<= 0)
         {

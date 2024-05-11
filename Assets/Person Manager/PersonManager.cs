@@ -4,7 +4,6 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 //************************************************JSON************************************************
 
@@ -36,8 +35,8 @@ public class PersonManager : MonoBehaviour
     public bool accepted = false;
     public bool rejected = false;
 
-    [SerializeField] TextMeshProUGUI ticketCounter;
-    [SerializeField] TextMeshProUGUI howmanyRemainingCounter;
+    [SerializeField] Text ticketCounter;
+    [SerializeField] Text howmanyRemainingCounter;
     private int alreadyCheked;
 
     public GameObject personPrefab;     //person template
