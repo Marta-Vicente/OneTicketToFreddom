@@ -4,6 +4,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 //************************************************JSON************************************************
 
@@ -35,6 +36,9 @@ public class PersonManager : MonoBehaviour
     public bool accepted = false;
     public bool rejected = false;
 
+    [SerializeField] TextMeshProUGUI ticketCounter;
+    [SerializeField] TextMeshProUGUI howmanyRemainingCounter;
+    private int alreadyCheked;
 
     public GameObject personPrefab;     //person template
     public string peopleJsonFileName = "people.json";       //JSON with characters' info
@@ -60,6 +64,7 @@ public class PersonManager : MonoBehaviour
         //person info
         text.text = " ";
 
+        alreadyCheked = peoplePerDay;
 
 
     }
@@ -84,6 +89,7 @@ public class PersonManager : MonoBehaviour
                 Debug.Log("You rejected " + viewedPerson.characterName);
                 showedUpCharacters.RemoveAt(0);
                 rejected = false;
+                --alreadyCheked;
             }
             else if (accepted)  //accept
             {
@@ -92,8 +98,10 @@ public class PersonManager : MonoBehaviour
                 Debug.Log("You accepted " + viewedPerson.characterName);
                 showedUpCharacters.RemoveAt(0);
                 accepted = false;
-
+                --alreadyCheked;
             }
+            
+            howmanyRemainingCounter.text = "Remaing number of people to check : " + alreadyCheked;
         }
         else if(seatsAvailable == 0)
         {
@@ -106,6 +114,8 @@ public class PersonManager : MonoBehaviour
             Debug.Log("You have seen everyone today");
             
         }
+
+        ticketCounter.text = "Available Seats: " + seatsAvailable.ToString();
 
 
     }
