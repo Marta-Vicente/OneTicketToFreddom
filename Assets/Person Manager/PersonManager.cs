@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 //************************************************JSON************************************************
 
@@ -28,6 +29,8 @@ public class PersonData
 //************************************************PERSON MANAGER************************************************
 public class PersonManager : MonoBehaviour
 {
+
+    public Text text;
     
     public GameObject personPrefab;     //person template
     public string peopleJsonFileName = "people.json";       //JSON with characters' info
@@ -50,6 +53,9 @@ public class PersonManager : MonoBehaviour
         // Parse the JSON data
         peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
 
+        //person info
+        text.text = " ";
+
     }
 
     // Update is called once per frame
@@ -66,6 +72,7 @@ public class PersonManager : MonoBehaviour
         if(seatsAvailable != 0 && showedUpCharacters.Count > 0)
         {
             viewedPerson = showedUpCharacters[0];
+            text.text = viewedPerson.Speak();
             if (Input.GetAxis("Horizontal") < 0 && Input.GetKeyDown(KeyCode.LeftArrow)) //reject
             {
                 Debug.Log("You rejected " + viewedPerson.characterName);
@@ -74,7 +81,6 @@ public class PersonManager : MonoBehaviour
             else if (Input.GetAxis("Horizontal") > 0 && Input.GetKeyDown(KeyCode.RightArrow))  //accept
             {
                 peopleData.people = ChoosePerson(peopleData.people, viewedPerson.personData);
-                viewedPerson.Speak();
                 seatsAvailable--;
                 Debug.Log("You accepted " + viewedPerson.characterName);
                 showedUpCharacters.RemoveAt(0);

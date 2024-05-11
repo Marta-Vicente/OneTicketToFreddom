@@ -30,9 +30,15 @@ public class Person : MonoBehaviour
         
     }
 
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log(characterName + " (" + age + "): " + description + " Threat: " + threatLevel + " since " + threatLevelJustification +  "and health: " + healthStatus + " since " + healthStatusDescription);
+        return "Name: "  + characterName + "\n" +
+            "Age:" + age + "\n \n" +
+            description + "\n \n" +
+            "Threat: " + threatLevel + "\n" +
+            "( " + threatLevelJustification + ") \n \n" +
+            "health status: " + healthStatus + "\n" +
+            "( " + healthStatusDescription + ")";
     }
 
 }
