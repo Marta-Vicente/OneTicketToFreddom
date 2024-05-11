@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,10 @@ public class PersonManager : MonoBehaviour
 {
 
     public Text text;
-    
+    public bool accepted = false;
+    public bool rejected = false;
+
+
     public GameObject personPrefab;     //person template
     public string peopleJsonFileName = "people.json";       //JSON with characters' info
     [SerializeField] public int peoplePerDay;       //number of people who show up in one day
@@ -56,6 +60,8 @@ public class PersonManager : MonoBehaviour
         //person info
         text.text = " ";
 
+
+
     }
 
     // Update is called once per frame
@@ -73,17 +79,19 @@ public class PersonManager : MonoBehaviour
         {
             viewedPerson = showedUpCharacters[0];
             text.text = viewedPerson.Speak();
-            if (Input.GetAxis("Horizontal") < 0 && Input.GetKeyDown(KeyCode.LeftArrow)) //reject
+            if (rejected) //reject
             {
                 Debug.Log("You rejected " + viewedPerson.characterName);
                 showedUpCharacters.RemoveAt(0);
+                rejected = false;
             }
-            else if (Input.GetAxis("Horizontal") > 0 && Input.GetKeyDown(KeyCode.RightArrow))  //accept
+            else if (accepted)  //accept
             {
                 peopleData.people = ChoosePerson(peopleData.people, viewedPerson.personData);
                 seatsAvailable--;
                 Debug.Log("You accepted " + viewedPerson.characterName);
                 showedUpCharacters.RemoveAt(0);
+                accepted = false;
 
             }
         }
@@ -99,6 +107,16 @@ public class PersonManager : MonoBehaviour
             
         }
 
+
+    }
+    public void AcceptClicked() {
+
+        accepted = true;
+    }
+
+    public void RejectClicked()
+    {
+        rejected = true;
 
     }
 
