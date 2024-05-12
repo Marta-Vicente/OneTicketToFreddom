@@ -4,6 +4,8 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 //************************************************JSON************************************************
 
@@ -144,7 +146,8 @@ public class PersonManager : MonoBehaviour
         else if (showedUpCharacters.Count == 0)
         {
             executedAlready = false; //NEXT DAY
-            Debug.Log("You have seen everyone today");
+            SceneManager.LoadScene(3);
+            //Debug.Log("You have seen everyone today");
             
         }
 
@@ -214,6 +217,7 @@ public class PersonManager : MonoBehaviour
     //when there are no more seats available or the week actually ends
     void EndWeek()
     {
+        SceneManager.LoadScene(2);
         Debug.Log("The week is over");
     }
 }
