@@ -32,6 +32,9 @@ public class PersonManager : MonoBehaviour
 {
 
     public Text text;
+
+
+    public List<Image> charactersImageList = new List<Image>();
     public bool accepted = false;
     public bool rejected = false;
 
@@ -65,7 +68,17 @@ public class PersonManager : MonoBehaviour
 
         alreadyCheked = peoplePerDay;
 
+    }
 
+    public void changeImageStatus(bool status,Person p)
+    {
+        for (int i = 0; i < charactersImageList.Count; i++)
+        {
+            if (charactersImageList[i].name == p.getName())
+            {
+                charactersImageList[i].enabled = status;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -82,6 +95,9 @@ public class PersonManager : MonoBehaviour
         if(seatsAvailable != 0 && showedUpCharacters.Count > 0)
         {
             viewedPerson = showedUpCharacters[0];
+            changeImageStatus(true,viewedPerson);
+
+
             text.text = viewedPerson.Speak();
             if (rejected) //reject
             {
@@ -89,6 +105,8 @@ public class PersonManager : MonoBehaviour
                 showedUpCharacters.RemoveAt(0);
                 rejected = false;
                 --alreadyCheked;
+                changeImageStatus(false,viewedPerson);
+
             }
             else if (accepted)  //accept
             {
@@ -98,9 +116,20 @@ public class PersonManager : MonoBehaviour
                 showedUpCharacters.RemoveAt(0);
                 accepted = false;
                 --alreadyCheked;
+                changeImageStatus(false,viewedPerson);
+
             }
-            
-            howmanyRemainingCounter.text = "Remaing number of people to check : " + alreadyCheked;
+
+            if (alreadyCheked <=0)
+            {
+                howmanyRemainingCounter.text = "Remaing number of people to check : 0";
+            }
+            else
+            {
+                howmanyRemainingCounter.text = "Remaing number of people to check : " + alreadyCheked;
+
+            }
+
         }
         else if(seatsAvailable == 0)
         {

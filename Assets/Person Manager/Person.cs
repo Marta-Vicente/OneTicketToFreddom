@@ -41,4 +41,8 @@ public class Person : MonoBehaviour
             "( " + healthStatusDescription + ")";
     }
 
+    public string getName()
+    {
+        return characterName;
+    }
 }
