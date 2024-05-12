@@ -33,6 +33,8 @@ public class PersonManager : MonoBehaviour
 
     public Text text;
 
+    public GameObject counter;
+
 
     public List<Image> charactersImageList = new List<Image>();
     public bool accepted = false;
@@ -76,7 +78,8 @@ public class PersonManager : MonoBehaviour
         {
             if (charactersImageList[i].name == p.getName())
             {
-                charactersImageList[i].enabled = status;
+                charactersImageList[i].gameObject.SetActive(status);
+
             }
         }
     }
@@ -85,6 +88,8 @@ public class PersonManager : MonoBehaviour
     void Update()
     {
         Person viewedPerson;
+
+        //counter = GameObject.Find("CountDown");
 
         if (!executedAlready)
         {
