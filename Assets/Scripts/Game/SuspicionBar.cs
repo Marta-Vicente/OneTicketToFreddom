@@ -15,9 +15,7 @@ public class SuspicionBar : MonoBehaviour
         fill.color = gradient.Evaluate(0f);
     }
 
-
-    
-    public void SetSuspicion(int suspicion)
+    public void SetSuspicion(float suspicion)
     {
         slider.value = suspicion;
 

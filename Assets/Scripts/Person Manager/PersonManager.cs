@@ -42,7 +42,7 @@ public class PersonManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
     }
 
@@ -84,7 +84,6 @@ public class PersonManager : MonoBehaviour
         text.text = " ";
 
         alreadyCheked = peoplePerDay;
-
     }
 
     public void changeImageStatus(bool status,Person p)
@@ -116,8 +115,7 @@ public class PersonManager : MonoBehaviour
         {
             viewedPerson = showedUpCharacters[0];
             changeImageStatus(true,viewedPerson);
-
-
+            
             text.text = viewedPerson.Speak();
             if (rejected) //reject
             {
@@ -161,22 +159,19 @@ public class PersonManager : MonoBehaviour
             executedAlready = false; //NEXT DAY
             SceneManager.LoadScene(3);
             //Debug.Log("You have seen everyone today");
-            
         }
 
         ticketCounter.text = "Available Seats: " + seatsAvailable.ToString();
-
-
     }
-    public void AcceptClicked() {
-
+    public void AcceptClicked() 
+    {
         accepted = true;
+        GameVars.Instance.BoardPerson(showedUpCharacters[0].threatLevel);
     }
 
     public void RejectClicked()
     {
         rejected = true;
-
     }
 
     //choose randomly who shows up in this day

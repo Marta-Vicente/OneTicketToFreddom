@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class GameVars : MonoBehaviour
 {
-    
     public static GameVars Instance;
 
     void Awake()
@@ -22,23 +21,26 @@ public class GameVars : MonoBehaviour
         }
     }
     
+    // How much suspicion gain is increased per week (20%)
+    [SerializeField] private float sus_increase = 0.2f;
+    [SerializeField] private SuspicionBar _suspicionBar;
+
+    // How much suspicion is gained at the end of the week
+    private float suspicion_gain = 0;
+
+    private int people = 0;
+    private int num_seats;
+
     private int week_counter = 1;
     
     private double suspicion = 0;
-    // How much suspicion gain is increased per week (20%)
-    [SerializeField] private double sus_increase = 0.2;
     [HideInInspector] public float susModifier;
-    // How much suspicion is gained at the end of the week
-    private double suspicion_gain = 0;
-
-    private int people = 0;
-    [SerializeField] private int num_seats = 20;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        num_seats = PersonManager.Instance.seatsAvailable;
+        people = PersonManager.Instance.peoplePerDay;
     }
 
     // Update is called once per frame
@@ -88,6 +90,8 @@ public class GameVars : MonoBehaviour
         else {
             suspicion_gain += (threatLevel - 1) * 4;
         }
+        
+        _suspicionBar.SetSuspicion(suspicion_gain);
     }
 
     // Changes the amount of seats by change amount
