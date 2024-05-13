@@ -32,6 +32,19 @@ public class PersonData
 //************************************************PERSON MANAGER************************************************
 public class PersonManager : MonoBehaviour
 {
+    public static PersonManager Instance;
+
+    void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this)
+            Destroy(this);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
 
     public Text text;
 
@@ -61,7 +74,7 @@ public class PersonManager : MonoBehaviour
     void Start()
     {
         // Read the JSON file
-        string filePath = Path.Combine(Application.dataPath + "/Person Manager/", peopleJsonFileName);
+        string filePath = Path.Combine(Application.dataPath + "/Scripts/Person Manager/", peopleJsonFileName);
         string jsonContent = File.ReadAllText(filePath);
 
         // Parse the JSON data
@@ -203,6 +216,8 @@ public class PersonManager : MonoBehaviour
     //Returns the people that will show up this day
     List<Person> NewDay()
     {
+        var gm = GameManager.Instance;
+        gm.GameplayeEventEffect(gm.gameplayEventInfos[Random.Range(0, gm.gameplayEventInfos.Count)]);
         showedUpCharacters = ShowUpCharacters(peopleData.people);
         return showedUpCharacters;
     }

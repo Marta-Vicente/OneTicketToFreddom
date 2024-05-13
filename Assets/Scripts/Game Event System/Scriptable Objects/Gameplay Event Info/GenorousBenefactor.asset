@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fea1074ebadf748866a9bfb77ce058, type: 3}
+  m_Name: GenorousBenefactor
+  m_EditorClassIdentifier: 
+  name: Genorous Benefactor
+  description: A genorous benefactor wants to help the cause. They have decided to
+    donate a carriage to help with the effort.<br>Effect:<br>Available seats increase
+    by +1
+  availableSeatModifier: 1
+  suspicionModifier: 0
