@@ -39,9 +39,9 @@
         {
             "characterName": "Vera",
             "age": 36,
-            "threatLevel": null,
+            "threatLevel": -1,
             "threatLevelJustification": null,
-            "healthStatus": null,
+            "healthStatus": -1,
             "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms started 2 days after her daughter's.",
             "description": "Bianca's mother. She wishes to flee so that her daughter may grow up in a free world."
         },
@@ -57,7 +57,7 @@
         {
             "characterName": "James",
             "age": 32,
-            "threatLevel": null,
+            "threatLevel": -1,
             "threatLevelJustification": "Nothing may happen or he can die any moment due to his disease.",
             "healthStatus": 0,
             "healthStatusDescription": "He has a rare disease which might have a 10% chance of being healed by a specialist.",
@@ -75,9 +75,9 @@
         {
             "characterName": "Bianca",
             "age": 13,
-            "threatLevel": null,
+            "threatLevel": -1,
             "threatLevelJustification": null,
-            "healthStatus": null,
+            "healthStatus": -1,
             "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms have been getting worse.",
             "description": "Vera's daughter. Must be with her mother."
         },
@@ -129,7 +129,7 @@
         {
             "characterName": "Lev",
             "age": 84,
-            "threatLevel": null,
+            "threatLevel": -1,
             "threatLevelJustification": "He might get you into trouble if he doesn't agree with your decision.",
             "healthStatus": 2,
             "healthStatusDescription": "He has mobility and breathing issues.",
@@ -165,7 +165,7 @@
         {
             "characterName": "Lloyd",
             "age": 49,
-            "threatLevel": null,
+            "threatLevel": -1,
             "threatLevelJustification": "He may be kept under surveillance.",
             "healthStatus": 5,
             "healthStatusDescription": "Healthy.",
@@ -174,7 +174,7 @@
         {
             "characterName": "Jasper",
             "age": 31,
-            "threatLevel": null,
+            "threatLevel": -1,
             "threatLevelJustification": "Having someone after him might draw extra attentions on yourself.",
             "healthStatus": 5,
             "healthStatusDescription": "Healthy.",

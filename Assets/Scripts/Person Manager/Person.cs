@@ -35,9 +35,9 @@ public class Person : MonoBehaviour
         return "Name: "  + characterName + "\n" +
             "Age:" + age + "\n \n" +
             description + "\n \n" +
-            "Threat: " + threatLevel + "\n" +
-            "( " + threatLevelJustification + ") \n \n" +
-            "health status: " + healthStatus + "\n" +
+            "Threat: " + ((threatLevel == -1) ? "?" : threatLevel) + "\n" +
+            ((string.IsNullOrEmpty(threatLevelJustification)) ? "" : "( " + threatLevelJustification + " )") + "\n \n" +
+            "health status: " + ((healthStatus == -1) ? "?" : healthStatus) + "\n" +
             "( " + healthStatusDescription + ")";
     }
 
