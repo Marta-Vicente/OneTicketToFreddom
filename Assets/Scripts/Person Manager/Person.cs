@@ -16,6 +16,9 @@ public class Person : MonoBehaviour
 
     public string description { get; set; }
 
+    public string consequenceOfAccepting { get; set; }
+    public string consequenceOfRejecting { get; set; }
+
     public PersonData personData { get; set; }
 
     // Start is called before the first frame update

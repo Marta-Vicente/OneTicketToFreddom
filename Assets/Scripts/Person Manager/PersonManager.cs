@@ -27,6 +27,8 @@ public class PersonData
     public int healthStatus;
     public string healthStatusDescription;
     public string description;
+    public string consequenceOfAccepting;
+    public string consequenceOfRejecting;
 }
 
 //************************************************PERSON MANAGER************************************************
@@ -198,6 +200,8 @@ public class PersonManager : MonoBehaviour
                 personComponent.healthStatus = personData.healthStatus;
                 personComponent.healthStatusDescription = personData.healthStatusDescription;
                 personComponent.description = personData.description;
+                personComponent.consequenceOfAccepting = personData.consequenceOfAccepting;
+                personComponent.consequenceOfRejecting = personData.consequenceOfRejecting;
                 personComponent.personData = personData;
 
                 showedUpList.Add(personComponent);
