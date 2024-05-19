@@ -275,7 +275,6 @@
             "consequenceOfAccepting": "Businessman Werner announces that no profit from his company will end up in Tenebris. This might represent a blunt for Tenebris' economy.",
             "consequenceOfRejecting": "The Werner Company is under investigation for suspicted tax fraud."
         },
-        
         {
             "characterName": "Walli",
             "age": 18,
@@ -286,6 +285,28 @@
             "description": "A talented musician whose work is constantly being censored by the authorities. He wishes to flee to somewhere where he can express himself freely and create his music.",
             "consequenceOfAccepting": "The next big music star? Walli has just arrived to Aethel but his songs are already making a huge success amongst the younger generation.",
             "consequenceOfRejecting": "2 young musicians were arrested last night for singing revolutionary songs."
+        },
+        {
+            "characterName": "Odo",
+            "age": 28,
+            "threatLevel": 2,
+            "threatLevelJustification": "His religious role gives him some freedom since authorities don't suspect of him.",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "A clergyman who organizes clandestine gatherings to discuss everything from arts to freedom.",
+            "consequenceOfAccepting": "Authorities performed raids in one of the most important churches in Tenebris for suspicions of rebel activity in its basement. No rebels were found but the authorities keep investigating.",
+            "consequenceOfRejecting": "Authorities performed raids in one of the most important churches in Tenebris for suspicions of rebel activity in its basement. All the suspects escaped but the authorities keep investigating."
+        },
+        {
+            "characterName": "Tanya",
+            "age": 24,
+            "threatLevel": 3,
+            "threatLevelJustification": "Authorities don't suspect of her. Or do they?",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "A journalist who is appreciated by the government since her work always represents the better side of life in Tenebris. However, she has been secretly giving dissident literary work to the New Publishing company.",
+            "consequenceOfAccepting": "\"There are so many great writers who are against the regime. They just need an opportunity to tell their truth.\", says Tanya, who escaped from Tenebris this week.",
+            "consequenceOfRejecting": "Tenebris' authorities have raided New Publishing. They suspect of the circulation of dissident work."
         }
     ]
 }
