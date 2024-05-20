@@ -1438,6 +1438,7 @@ MonoBehaviour:
   peopleJsonFileName: people.json
   peoplePerDay: 3
   seatsAvailable: 2
+  numberOfNews: 3
 --- !u!1 &1327701109
 GameObject:
   m_ObjectHideFlags: 0
