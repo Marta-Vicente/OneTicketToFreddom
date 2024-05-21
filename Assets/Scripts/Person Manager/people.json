@@ -307,6 +307,17 @@
             "description": "A journalist who is appreciated by the government since her work always represents the better side of life in Tenebris. However, she has been secretly giving dissident literary work to the New Publishing company.",
             "consequenceOfAccepting": "\"There are so many great writers who are against the regime. They just need an opportunity to tell their truth.\", says Tanya, who escaped from Tenebris this week.",
             "consequenceOfRejecting": "Tenebris' authorities have raided New Publishing. They suspect of the circulation of dissident work."
+        },
+        {
+            "characterName": "Dimka",
+            "age": 24,
+            "threatLevel": 5,
+            "threatLevelJustification": "The government keeps its own staff under surveillance to make sure they don't betray them.",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "Tanya's twin and a member of the government, Dimka has always believed that despite ruthless, the Tenebris government only needed to be improved. But now it's his sister who is in danger and his perspective has changed. With privileged information, Dimka intends to expose the Tenebris government so that everyone knows what is happening.",
+            "consequenceOfAccepting": "Aethel's Parliament has announced a public hearing for Dimka, the Tenebris exiled. As a former member of the government, he has \"revelations to make that might shock many people\", says the Parliament speaker who has already listened to Dimka.",
+            "consequenceOfRejecting": "\"Everyone needs to obey the law... even politicians.\", the mysterious words from the Tenebris Intelligence Agency (TIA) chief."
         }
     ]
 }

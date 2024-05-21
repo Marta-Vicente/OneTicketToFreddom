@@ -73,7 +73,7 @@ public class PersonManager : MonoBehaviour
     private bool executedAlready = false;
     private bool startOfWeek = true;
     List<Person> showedUpCharacters;
-    List<(string, string)> consequences;
+    List<(string, string)> consequences;    //list where the correct consequences are stored for each character we face
     //KEYS 2
     private bool keyPressed = false;    
 
@@ -114,7 +114,7 @@ public class PersonManager : MonoBehaviour
         //counter = GameObject.Find("CountDown");
         if (startOfWeek)
         {
-            consequences = new List<(string, string)>();
+            consequences = new List<(string, string)>();    //restart list after end of the week
             startOfWeek = false;
         }
 
@@ -133,7 +133,7 @@ public class PersonManager : MonoBehaviour
             if (rejected) //reject
             {
                 Debug.Log("You rejected " + viewedPerson.characterName);
-                if(!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))
+                if(!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))   //if not seen yet
                 {
                     (string, string) newConsequence = (viewedPerson.characterName, viewedPerson.consequenceOfRejecting);
                     consequences.Add(newConsequence);
@@ -149,12 +149,12 @@ public class PersonManager : MonoBehaviour
                 peopleData.people = ChoosePerson(peopleData.people, viewedPerson.personData);
                 seatsAvailable--;
                 Debug.Log("You accepted " + viewedPerson.characterName);
-                if (!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))
+                if (!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))  //if not seen yet
                 {
                     (string, string) newConsequence = (viewedPerson.characterName, viewedPerson.consequenceOfAccepting);
                     consequences.Add(newConsequence);
                 }
-                else if (consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))
+                else if (consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))  //if had been rejected before
                 {
 
                     consequences.Remove((viewedPerson.characterName, viewedPerson.consequenceOfRejecting));
