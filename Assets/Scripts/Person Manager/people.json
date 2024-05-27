@@ -112,14 +112,14 @@
         },
         {
             "characterName": "Ursula",
-            "age": 16,
+            "age": 60,
             "threatLevel": 3,
             "threatLevelJustification": "Talks too much, so she can tell someone else about the train escape.",
-            "healthStatus": 5,
-            "healthStatusDescription": "Healthy.",
+            "healthStatus": 3,
+            "healthStatusDescription": "Has diabetes.",
             "description": "She is a free spirit, who wishes to live her life as she wishes, with no government telling her what she can or can't do.",
             "consequenceOfAccepting": "Rumours have been circulating about a secret way to escape Tenebris. The authorities will not allow any reference to this outrageous matter.",
-            "consequenceOfRejecting": "More and more young people arrive to Aethel looking for a better life."
+            "consequenceOfRejecting": "As days go by, getting EpiPens and proper medication is really hard... More and more people have been dying from something like this that can easily be managed."
         },
         {
             "characterName": "Woody",
