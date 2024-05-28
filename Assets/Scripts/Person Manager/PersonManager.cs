@@ -49,17 +49,14 @@ public class PersonManager : MonoBehaviour
         }
     }
 
-    public Text text;
-
-    public GameObject counter;
-
-
+    public Text characterText;
+    
     public List<Image> charactersImageList = new List<Image>();
     public bool accepted = false;
     public bool rejected = false;
 
     [SerializeField] Text ticketCounter;
-    [SerializeField] Text howmanyRemainingCounter;
+    [SerializeField] Text personsRemainingCounter;
     private int alreadyCheked;
 
     public GameObject personPrefab;     //person template
@@ -69,12 +66,12 @@ public class PersonManager : MonoBehaviour
     public int numberOfNews;     //number of news that will appear in the newspaper at the end of the week
     PeopleArray peopleData;                         //characters' info read from JSON
     
-    private int _seatsAvailableCounter;
+    [HideInInspector] public int seatsAvailableCounter;
 
     //KEYS
-    private bool startOfWeek = true;
+    [HideInInspector] public bool startOfWeek = true;
     List<Person> showedUpCharacters;
-    List<(string, string)> consequences;    //list where the correct consequences are stored for each character we face
+    [HideInInspector] public List<(string, string)> consequences;  //list where the correct consequences are stored for each character we face
     //KEYS 2
     private bool keyPressed = false;    
 
@@ -88,16 +85,16 @@ public class PersonManager : MonoBehaviour
         peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
 
         //person info
-        text.text = " ";
+        characterText.text = " ";
 
         alreadyCheked = peoplePerDay;
 
         numberOfNews = seatsAvailable;
-        _seatsAvailableCounter = seatsAvailable;
-        NewWeek();
+        seatsAvailableCounter = seatsAvailable;
+        GameManager.Instance.NewWeek();
     }
 
-    public void changeImageStatus(bool status,Person p)
+    public void ChangeImageStatus(bool status,Person p)
     {
         for (int i = 0; i < charactersImageList.Count; i++)
         {
@@ -112,12 +109,12 @@ public class PersonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_seatsAvailableCounter != 0 && showedUpCharacters.Count > 0)
+        if(seatsAvailableCounter != 0 && showedUpCharacters.Count > 0)
         {
             var viewedPerson = showedUpCharacters[0];
-            changeImageStatus(true,viewedPerson);
+            ChangeImageStatus(true,viewedPerson);
             
-            text.text = viewedPerson.Speak();
+            characterText.text = viewedPerson.Speak();
             if (rejected) //reject
             {
                 Debug.Log("You rejected " + viewedPerson.characterName);
@@ -129,13 +126,13 @@ public class PersonManager : MonoBehaviour
                 showedUpCharacters.RemoveAt(0);
                 rejected = false;
                 --alreadyCheked;
-                changeImageStatus(false,viewedPerson);
+                ChangeImageStatus(false,viewedPerson);
 
             }
             else if (accepted)  //accept
             {
                 peopleData.people = ChoosePerson(peopleData.people, viewedPerson.personData);
-                _seatsAvailableCounter--;
+                seatsAvailableCounter--;
                 Debug.Log("You accepted " + viewedPerson.characterName);
                 if (!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))  //if not seen yet
                 {
@@ -153,46 +150,46 @@ public class PersonManager : MonoBehaviour
                 showedUpCharacters.RemoveAt(0);
                 accepted = false;
                 --alreadyCheked;
-                changeImageStatus(false,viewedPerson);
+                ChangeImageStatus(false,viewedPerson);
             }
 
             if (alreadyCheked <=0)
             {
-                howmanyRemainingCounter.text = "Remaing number of people to check : 0";
+                personsRemainingCounter.text = "Remaing number of people to check : 0";
             }
             else
             {
-                howmanyRemainingCounter.text = "Remaing number of people to check : " + alreadyCheked;
+                personsRemainingCounter.text = "Remaing number of people to check : " + alreadyCheked;
 
             }
         }
 
-        ticketCounter.text = "Available Seats: " + _seatsAvailableCounter.ToString();
+        ticketCounter.text = "Available Seats: " + seatsAvailableCounter.ToString();
     }
     public void AcceptClicked() 
     {
         accepted = true;
         GameManager.Instance.BoardPerson(showedUpCharacters[0].threatLevel);
-        if(_seatsAvailableCounter == 0)    //NEXT WEEK
+        if(seatsAvailableCounter == 0)    //NEXT WEEK
         {  
-            StartCoroutine(EndWeek());
+            GameManager.Instance.EndWeek();
         }
         else if (showedUpCharacters.Count == 0)     //NEXT DAY
         {
-            StartCoroutine(NextDay());
+            GameManager.Instance.NextDay();
         }
     }
 
     public void RejectClicked()
     {
         rejected = true;
-        if(_seatsAvailableCounter == 0)    //NEXT WEEK
+        if(seatsAvailableCounter == 0)    //NEXT WEEK
         {  
-            StartCoroutine(EndWeek());
+            GameManager.Instance.EndWeek();
         }
         else if (showedUpCharacters.Count == 0)     //NEXT DAY
         {
-            StartCoroutine(NextDay());
+            GameManager.Instance.NextDay();
         }
     }
 
@@ -233,7 +230,7 @@ public class PersonManager : MonoBehaviour
     }
 
     //Returns the people that will show up this day
-    void NewDay()
+    public void NewDay()
     {
         showedUpCharacters = ShowUpCharacters(peopleData.people);
     }
@@ -247,7 +244,6 @@ public class PersonManager : MonoBehaviour
 
     void PrintNews()
     {
-        
         for (int i = 0; i < consequences.Count; i++)
         {
             int randConsequenceIndex = UnityEngine.Random.Range(0, consequences.Count - 1);
@@ -255,35 +251,6 @@ public class PersonManager : MonoBehaviour
             Debug.Log(consequence.Item2);
             consequences.Remove(consequence);
         }
-    }
-
-    private void NewWeek()
-    {
-        consequences = new List<(string, string)>();    //restart list after end of the week
-        startOfWeek = false;
-        var gm = GameManager.Instance;
-        gm.GameplayeEventEffect(gm.gameplayEventInfos[UnityEngine.Random.Range(0, gm.gameplayEventInfos.Count)]);
-        NewDay();
-    }
-
-    private IEnumerator EndWeek()
-    {
-        var screen = UIManager.Instance.endOfWeekScreen;
-        screen.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        screen.SetActive(false);
-        startOfWeek = true;
-        _seatsAvailableCounter = seatsAvailable;
-        NewWeek();
-    }
-    
-    private IEnumerator NextDay()
-    {
-        var screen = UIManager.Instance.nextDayScreen;
-        screen.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        screen.SetActive(false);
-        NewDay();
     }
 }
 

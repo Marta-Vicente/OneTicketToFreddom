@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
     public GameObject eventScreen;
     public TextMeshProUGUI eventName;
     public TextMeshProUGUI eventDescription;
-    
+
     public List<GameplayEventInfo> gameplayEventInfos;
 
     private GameplayEventInfo _currentGamplayEvent;
-    
+
     // How much suspicion gain is increased per week (20%)
     [SerializeField] private float sus_increase = 0.2f;
     [SerializeField] private SuspicionBar _suspicionBar;
@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
     private int num_seats;
 
     private int week_counter = 1;
-    
+
     private double suspicion = 0;
     [HideInInspector] public float susModifier;
-    
+
     void Start()
     {
         num_seats = PersonManager.Instance.seatsAvailable;
@@ -54,12 +54,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     // Change suspicion and reset week vars
-    public void WeekForwarder() {
-        if (suspicion_gain > 0) 
+    public void WeekForwarder()
+    {
+        if (suspicion_gain > 0)
         {
             suspicion += suspicion_gain * (1 + sus_increase * (week_counter - 1));
         }
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
             suspicion += suspicion_gain;
         }
 
-        if (suspicion < 0) 
+        if (suspicion < 0)
         {
             suspicion = 0;
         }
@@ -84,10 +84,14 @@ public class GameManager : MonoBehaviour
         Console.WriteLine(week_counter);
     }
 
-    public void BoardPerson(int threatLevel) 
+    public void BoardPerson(int threatLevel)
     {
-        if (people == num_seats) { Console.WriteLine("Boarding limit exceeded"); return; }
-        
+        if (people == num_seats)
+        {
+            Console.WriteLine("Boarding limit exceeded");
+            return;
+        }
+
         people++;
 
         // If threatLevel = 1, suspicion gain will be negative
@@ -95,17 +99,23 @@ public class GameManager : MonoBehaviour
         {
             suspicion_gain -= 4;
         }
-        else {
+        else
+        {
             suspicion_gain += (threatLevel - 1) * 4;
         }
-        
+
         _suspicionBar.SetSuspicion(suspicion_gain);
     }
 
     // Changes the amount of seats by change amount
     public void AlterSeatsAmount(int change)
     {
-        if (-change >= num_seats) { num_seats = 0; return; }
+        if (-change >= num_seats)
+        {
+            num_seats = 0;
+            return;
+        }
+
         num_seats += change;
     }
 
@@ -114,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         num_seats = (int)(num_seats * change);
     }
-    
+
     public void GameplayeEventEffect(GameplayEventInfo gameplayEventInfo)
     {
         _currentGamplayEvent = gameplayEventInfo;
@@ -131,5 +141,47 @@ public class GameManager : MonoBehaviour
         });
 
         PersonManager.Instance.seatsAvailable += gameplayEventInfo.availableSeatModifier;
+    }
+
+    public void NewWeek()
+    {
+        var pm = PersonManager.Instance;
+        pm.consequences = new List<(string, string)>(); //restart list after end of the week
+        pm.startOfWeek = false;
+        
+        GameplayeEventEffect(gameplayEventInfos[UnityEngine.Random.Range(0, gameplayEventInfos.Count)]);
+        pm.NewDay();
+    }
+
+    public void EndWeek()
+    {
+        var screen = UIManager.Instance.endOfWeekScreen;
+        screen.SetActive(true);
+
+        IEnumerator Delay()
+        {
+            yield return new WaitForSeconds(3f);
+            screen.SetActive(false);
+            PersonManager.Instance.startOfWeek = true;
+            PersonManager.Instance.seatsAvailableCounter = PersonManager.Instance.seatsAvailable;
+            NewWeek();
+        }
+
+        StartCoroutine(Delay());
+    }
+
+    public void NextDay()
+    {
+        var screen = UIManager.Instance.nextDayScreen;
+        screen.SetActive(true);
+
+        IEnumerator Delay()
+        {
+            yield return new WaitForSeconds(3f);
+            screen.SetActive(false);
+            PersonManager.Instance.NewDay();
+        }
+
+        StartCoroutine(Delay());
     }
 }
