@@ -958,6 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d5056dfc4cf7848bb7f34d6361a7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfDayPerWeek: 3
   eventScreen: {fileID: 2035699931}
   eventName: {fileID: 1843577039}
   eventDescription: {fileID: 258385070}
@@ -1383,8 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59f04116a5e19448acb964f4062e560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1327701111}
-  counter: {fileID: 0}
+  characterText: {fileID: 1327701111}
   charactersImageList:
   - {fileID: 1955062363}
   - {fileID: 1487153887}
@@ -1399,12 +1399,13 @@ MonoBehaviour:
   accepted: 0
   rejected: 0
   ticketCounter: {fileID: 109156287}
-  howmanyRemainingCounter: {fileID: 1884879045}
+  personsRemainingText: {fileID: 1884879045}
   personPrefab: {fileID: 1934732738}
   peopleJsonFileName: people.json
   peoplePerDay: 3
   seatsAvailable: 2
   numberOfNews: 3
+  seatsAvailableCounter: 0
 --- !u!1 &1327701109
 GameObject:
   m_ObjectHideFlags: 0

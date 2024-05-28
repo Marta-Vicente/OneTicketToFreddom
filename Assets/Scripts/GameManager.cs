@@ -22,12 +22,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("Game")] 
+    public int numberOfDayPerWeek = 3; 
+    
+    [Header("Game Events")]
     public GameObject eventScreen;
     public TextMeshProUGUI eventName;
     public TextMeshProUGUI eventDescription;
 
+    [Header("Weakly Events")]
     public List<GameplayEventInfo> gameplayEventInfos;
-
+    
     private GameplayEventInfo _currentGamplayEvent;
 
     // How much suspicion gain is increased per week (20%)
@@ -38,16 +43,17 @@ public class GameManager : MonoBehaviour
     private float suspicion_gain = 0;
 
     private int people = 0;
-    private int num_seats;
+    private int numSeats;
 
-    private int week_counter = 1;
+    private int _weekCounter = 0;
+    private int _dayCounter;
 
     private double suspicion = 0;
     [HideInInspector] public float susModifier;
 
     void Start()
     {
-        num_seats = PersonManager.Instance.seatsAvailable;
+        numSeats = PersonManager.Instance.seatsAvailable;
         people = PersonManager.Instance.peoplePerDay;
     }
 
@@ -61,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         if (suspicion_gain > 0)
         {
-            suspicion += suspicion_gain * (1 + sus_increase * (week_counter - 1));
+            suspicion += suspicion_gain * (1 + sus_increase * (_weekCounter - 1));
         }
         else
         {
@@ -80,13 +86,12 @@ public class GameManager : MonoBehaviour
 
         people = 0;
         suspicion_gain = 0;
-        week_counter++;
-        Console.WriteLine(week_counter);
+        Console.WriteLine(_weekCounter);
     }
 
     public void BoardPerson(int threatLevel)
     {
-        if (people == num_seats)
+        if (people == numSeats)
         {
             Console.WriteLine("Boarding limit exceeded");
             return;
@@ -110,19 +115,19 @@ public class GameManager : MonoBehaviour
     // Changes the amount of seats by change amount
     public void AlterSeatsAmount(int change)
     {
-        if (-change >= num_seats)
+        if (-change >= numSeats)
         {
-            num_seats = 0;
+            numSeats = 0;
             return;
         }
 
-        num_seats += change;
+        numSeats += change;
     }
 
     // Changes the amount of seats by a multiplier
     public void MultiplySeatsAmount(double change)
     {
-        num_seats = (int)(num_seats * change);
+        numSeats = (int)(numSeats * change);
     }
 
     public void GameplayeEventEffect(GameplayEventInfo gameplayEventInfo)
@@ -145,10 +150,11 @@ public class GameManager : MonoBehaviour
 
     public void NewWeek()
     {
+        WeekForwarder();
         var pm = PersonManager.Instance;
         pm.consequences = new List<(string, string)>(); //restart list after end of the week
-        pm.startOfWeek = false;
-        
+        _dayCounter = 0;
+        _weekCounter++;
         GameplayeEventEffect(gameplayEventInfos[UnityEngine.Random.Range(0, gameplayEventInfos.Count)]);
         pm.NewDay();
     }
@@ -162,7 +168,6 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
             screen.SetActive(false);
-            PersonManager.Instance.startOfWeek = true;
             PersonManager.Instance.seatsAvailableCounter = PersonManager.Instance.seatsAvailable;
             NewWeek();
         }
@@ -172,6 +177,13 @@ public class GameManager : MonoBehaviour
 
     public void NextDay()
     {
+        _dayCounter++;
+        if (_dayCounter == numberOfDayPerWeek)
+        {
+            EndWeek();
+            return;
+        }
+        
         var screen = UIManager.Instance.nextDayScreen;
         screen.SetActive(true);
 

@@ -52,12 +52,10 @@ public class PersonManager : MonoBehaviour
     public Text characterText;
     
     public List<Image> charactersImageList = new List<Image>();
-    public bool accepted = false;
-    public bool rejected = false;
 
     [SerializeField] Text ticketCounter;
-    [SerializeField] Text personsRemainingCounter;
-    private int alreadyCheked;
+    [SerializeField] Text personsRemainingText;
+    private int personsRemainingCounter;
 
     public GameObject personPrefab;     //person template
     public string peopleJsonFileName = "people.json";       //JSON with characters' info
@@ -69,9 +67,10 @@ public class PersonManager : MonoBehaviour
     [HideInInspector] public int seatsAvailableCounter;
 
     //KEYS
-    [HideInInspector] public bool startOfWeek = true;
-    List<Person> showedUpCharacters;
-    [HideInInspector] public List<(string, string)> consequences;  //list where the correct consequences are stored for each character we face
+    private bool _accepted = false;
+    private bool _rejected = false;
+    private List<Person> showedUpCharacters;
+    public List<(string, string)> consequences;  //list where the correct consequences are stored for each character we face
     //KEYS 2
     private bool keyPressed = false;    
 
@@ -87,7 +86,7 @@ public class PersonManager : MonoBehaviour
         //person info
         characterText.text = " ";
 
-        alreadyCheked = peoplePerDay;
+        personsRemainingCounter = peoplePerDay;
 
         numberOfNews = seatsAvailable;
         seatsAvailableCounter = seatsAvailable;
@@ -115,7 +114,7 @@ public class PersonManager : MonoBehaviour
             ChangeImageStatus(true,viewedPerson);
             
             characterText.text = viewedPerson.Speak();
-            if (rejected) //reject
+            if (_rejected) //reject
             {
                 Debug.Log("You rejected " + viewedPerson.characterName);
                 if(!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))   //if not seen yet
@@ -124,12 +123,12 @@ public class PersonManager : MonoBehaviour
                     consequences.Add(newConsequence);
                 }
                 showedUpCharacters.RemoveAt(0);
-                rejected = false;
-                --alreadyCheked;
+                _rejected = false;
+                --personsRemainingCounter;
                 ChangeImageStatus(false,viewedPerson);
 
             }
-            else if (accepted)  //accept
+            else if (_accepted)  //accept
             {
                 peopleData.people = ChoosePerson(peopleData.people, viewedPerson.personData);
                 seatsAvailableCounter--;
@@ -148,18 +147,18 @@ public class PersonManager : MonoBehaviour
                 }
                 
                 showedUpCharacters.RemoveAt(0);
-                accepted = false;
-                --alreadyCheked;
+                _accepted = false;
+                --personsRemainingCounter;
                 ChangeImageStatus(false,viewedPerson);
             }
 
-            if (alreadyCheked <=0)
+            if (personsRemainingCounter <=0)
             {
-                personsRemainingCounter.text = "Remaing number of people to check : 0";
+                personsRemainingText.text = "Remaing number of people to check : 0";
             }
             else
             {
-                personsRemainingCounter.text = "Remaing number of people to check : " + alreadyCheked;
+                personsRemainingText.text = "Remaing number of people to check : " + personsRemainingCounter;
 
             }
         }
@@ -168,13 +167,9 @@ public class PersonManager : MonoBehaviour
     }
     public void AcceptClicked() 
     {
-        accepted = true;
+        _accepted = true;
         GameManager.Instance.BoardPerson(showedUpCharacters[0].threatLevel);
-        if(seatsAvailableCounter == 0)    //NEXT WEEK
-        {  
-            GameManager.Instance.EndWeek();
-        }
-        else if (showedUpCharacters.Count == 0)     //NEXT DAY
+        if (showedUpCharacters.Count == 0)
         {
             GameManager.Instance.NextDay();
         }
@@ -182,12 +177,8 @@ public class PersonManager : MonoBehaviour
 
     public void RejectClicked()
     {
-        rejected = true;
-        if(seatsAvailableCounter == 0)    //NEXT WEEK
-        {  
-            GameManager.Instance.EndWeek();
-        }
-        else if (showedUpCharacters.Count == 0)     //NEXT DAY
+        _rejected = true;
+        if (showedUpCharacters.Count == 0)
         {
             GameManager.Instance.NextDay();
         }
@@ -233,6 +224,7 @@ public class PersonManager : MonoBehaviour
     public void NewDay()
     {
         showedUpCharacters = ShowUpCharacters(peopleData.people);
+        personsRemainingCounter = peoplePerDay;
     }
 
     //Remove person from character's list, once the person is accepted
