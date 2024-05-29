@@ -63,13 +63,16 @@ public class PersonManager : MonoBehaviour
     public int seatsAvailable;     //number of seats available to give
     public int numberOfNews;     //number of news that will appear in the newspaper at the end of the week
     PeopleArray peopleData;                         //characters' info read from JSON
+
+    private bool _personSpeaking;
+    private Person _currentCharacter;
     
     [HideInInspector] public int seatsAvailableCounter;
 
     //KEYS
     private bool _accepted = false;
     private bool _rejected = false;
-    private List<Person> showedUpCharacters;
+    private List<Person> dailyCharacters;
     public List<(string, string)> consequences;  //list where the correct consequences are stored for each character we face
     //KEYS 2
     private bool keyPressed = false;    
@@ -105,83 +108,68 @@ public class PersonManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NewCharacter()
     {
-        if(seatsAvailableCounter != 0 && showedUpCharacters.Count > 0)
+        if(seatsAvailableCounter != 0 && dailyCharacters.Count > 0)
         {
-            var viewedPerson = showedUpCharacters[0];
-            ChangeImageStatus(true,viewedPerson);
-            
-            characterText.text = viewedPerson.Speak();
-            if (_rejected) //reject
-            {
-                Debug.Log("You rejected " + viewedPerson.characterName);
-                if(!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))   //if not seen yet
-                {
-                    (string, string) newConsequence = (viewedPerson.characterName, viewedPerson.consequenceOfRejecting);
-                    consequences.Add(newConsequence);
-                }
-                showedUpCharacters.RemoveAt(0);
-                _rejected = false;
-                --personsRemainingCounter;
-                ChangeImageStatus(false,viewedPerson);
+            _currentCharacter = dailyCharacters[0];
+            ChangeImageStatus(true, _currentCharacter);
+            _currentCharacter.Speak();
 
-            }
-            else if (_accepted)  //accept
-            {
-                peopleData.people = ChoosePerson(peopleData.people, viewedPerson.personData);
-                seatsAvailableCounter--;
-                Debug.Log("You accepted " + viewedPerson.characterName);
-                if (!consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))  //if not seen yet
-                {
-                    (string, string) newConsequence = (viewedPerson.characterName, viewedPerson.consequenceOfAccepting);
-                    consequences.Add(newConsequence);
-                }
-                else if (consequences.Contains((viewedPerson.characterName, viewedPerson.consequenceOfRejecting)))  //if had been rejected before
-                {
-
-                    consequences.Remove((viewedPerson.characterName, viewedPerson.consequenceOfRejecting));
-                    (string, string) newConsequence = (viewedPerson.characterName, viewedPerson.consequenceOfAccepting);
-                    consequences.Add(newConsequence);
-                }
-                
-                showedUpCharacters.RemoveAt(0);
-                _accepted = false;
-                --personsRemainingCounter;
-                ChangeImageStatus(false,viewedPerson);
-            }
-
-            if (personsRemainingCounter <=0)
-            {
-                personsRemainingText.text = "Remaing number of people to check : 0";
-            }
+            if (personsRemainingCounter <= 0)
+                personsRemainingText.text = "Remaining number of people to check : 0";
             else
-            {
-                personsRemainingText.text = "Remaing number of people to check : " + personsRemainingCounter;
-
-            }
+                personsRemainingText.text = "Remaining number of people to check : " + personsRemainingCounter;
         }
 
-        ticketCounter.text = "Available Seats: " + seatsAvailableCounter.ToString();
+        ticketCounter.text = "Available Seats: " + seatsAvailableCounter;
     }
-    public void AcceptClicked() 
+    
+    public void AcceptClicked()
     {
         _accepted = true;
-        GameManager.Instance.BoardPerson(showedUpCharacters[0].threatLevel);
-        if (showedUpCharacters.Count == 0)
-        {
+        GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel);
+        if (dailyCharacters.Count == 0)
             GameManager.Instance.NextDay();
+        
+        peopleData.people = ChoosePerson(peopleData.people, _currentCharacter.personData);
+        seatsAvailableCounter--;
+        Debug.Log("You accepted " + _currentCharacter.characterName);
+        if (!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))  //if not seen yet
+        {
+            (string, string) newConsequence = (_currentCharacter.characterName, _currentCharacter.consequenceOfAccepting);
+            consequences.Add(newConsequence);
         }
+        else if (consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))  //if had been rejected before
+        {
+
+            consequences.Remove((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting));
+            (string, string) newConsequence = (_currentCharacter.characterName, _currentCharacter.consequenceOfAccepting);
+            consequences.Add(newConsequence);
+        }
+                
+        dailyCharacters.RemoveAt(0);
+        _accepted = false;
+        --personsRemainingCounter;
+        ChangeImageStatus(false, _currentCharacter);
     }
 
     public void RejectClicked()
     {
         _rejected = true;
-        if (showedUpCharacters.Count == 0)
-        {
+        if (dailyCharacters.Count == 0)
             GameManager.Instance.NextDay();
+        
+        Debug.Log("You rejected " + _currentCharacter.characterName);
+        if(!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))   //if not seen yet
+        {
+            (string, string) newConsequence = (_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting);
+            consequences.Add(newConsequence);
         }
+        dailyCharacters.RemoveAt(0);
+        _rejected = false;
+        --personsRemainingCounter;
+        ChangeImageStatus(false, _currentCharacter);
     }
 
     //choose randomly who shows up in this day
@@ -223,8 +211,9 @@ public class PersonManager : MonoBehaviour
     //Returns the people that will show up this day
     public void NewDay()
     {
-        showedUpCharacters = ShowUpCharacters(peopleData.people);
+        dailyCharacters = ShowUpCharacters(peopleData.people);
         personsRemainingCounter = peoplePerDay;
+        NewCharacter();
     }
 
     //Remove person from character's list, once the person is accepted
