@@ -111,6 +111,17 @@
             "consequenceOfRejecting": "Pietro, the leader of the anarchist opposition was arrested today for incitement to violence. The man shall be sentenced to life sentence."
         },
         {
+            "characterName": "Elena",
+            "age": 78,
+            "threatLevel": 2,
+            "threatLevelJustification": "Has been an activist, but she hasn't been involved in these movements for many years.",
+            "healthStatus": 2,
+            "healthStatusDescription": "She has arthritis, heart problems and kidney failure, which requires her to undergo dialysis every month. She can't afford any of the treatments.",
+            "description": "Retired who dedicated her life to social activism, helping to organize peaceful resistance movements.",
+            "consequenceOfAccepting": "",
+            "consequenceOfRejecting": ""
+        },
+        {
             "characterName": "Ursula",
             "age": 60,
             "threatLevel": 3,
