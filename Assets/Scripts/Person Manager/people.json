@@ -118,8 +118,8 @@
             "healthStatus": 2,
             "healthStatusDescription": "She has arthritis, heart problems and kidney failure, which requires her to undergo dialysis every month. She can't afford any of the treatments.",
             "description": "Retired who dedicated her life to social activism, helping to organize peaceful resistance movements.",
-            "consequenceOfAccepting": "",
-            "consequenceOfRejecting": ""
+            "consequenceOfAccepting": "Aethel is saving Tenebris: how Aethel's dialysis treatments are saving those who need in Tenebris.",
+            "consequenceOfRejecting": "Tenebris health system on the verge of collapse after the closure of another dialysis unit."
         },
         {
             "characterName": "Ursula",
