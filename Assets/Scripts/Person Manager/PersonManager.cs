@@ -129,9 +129,7 @@ public class PersonManager : MonoBehaviour
     {
         _accepted = true;
         GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel);
-        if (dailyCharacters.Count == 0)
-            GameManager.Instance.NextDay();
-        
+
         peopleData.people = ChoosePerson(peopleData.people, _currentCharacter.personData);
         seatsAvailableCounter--;
         Debug.Log("You accepted " + _currentCharacter.characterName);
@@ -147,19 +145,24 @@ public class PersonManager : MonoBehaviour
             (string, string) newConsequence = (_currentCharacter.characterName, _currentCharacter.consequenceOfAccepting);
             consequences.Add(newConsequence);
         }
-                
+
         dailyCharacters.RemoveAt(0);
+        
+        if (dailyCharacters.Count == 0)
+        {
+            GameManager.Instance.NextDay();
+            return;
+        }
+        
         _accepted = false;
         --personsRemainingCounter;
         ChangeImageStatus(false, _currentCharacter);
+        NewCharacter();
     }
 
     public void RejectClicked()
     {
         _rejected = true;
-        if (dailyCharacters.Count == 0)
-            GameManager.Instance.NextDay();
-        
         Debug.Log("You rejected " + _currentCharacter.characterName);
         if(!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))   //if not seen yet
         {
@@ -167,9 +170,18 @@ public class PersonManager : MonoBehaviour
             consequences.Add(newConsequence);
         }
         dailyCharacters.RemoveAt(0);
+        
+        if (dailyCharacters.Count == 0)
+        {
+            GameManager.Instance.NextDay();
+            return;
+        }
+        
         _rejected = false;
         --personsRemainingCounter;
         ChangeImageStatus(false, _currentCharacter);
+        NewCharacter();
+        
     }
 
     //choose randomly who shows up in this day

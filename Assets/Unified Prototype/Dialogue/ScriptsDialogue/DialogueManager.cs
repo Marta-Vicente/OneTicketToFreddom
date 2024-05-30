@@ -73,7 +73,18 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if (dialogueIsPlaying && Input.GetMouseButtonDown(0))
+        {
+            foreach (var choice in choices)
+            {
+                var hasChoices = choice.activeSelf;
+                if (hasChoices)
+                {
+                    return;
+                }
+            }
+            
             ContinueStory();
+        }
     }
     public void EnterDialogueMode(TextAsset inkJSON)
     {
@@ -93,7 +104,6 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialogueTextBox.SetActive(false);
         dialogueText.text = "";
-        PersonManager.Instance.NewCharacter();
     }
 
     private void ContinueStory(){
@@ -108,7 +118,6 @@ public class DialogueManager : MonoBehaviour
             if (tags.Any())
             {
                 currentTag = tags[0];
-                name.text = currentTag;
                 /*var value = (int) System.Enum.Parse(typeof(portraitsOrder), currentTag);
                 portrait.sprite = portraits[value];*/
             }

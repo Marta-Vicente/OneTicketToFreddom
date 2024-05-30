@@ -39,5 +39,5 @@ In the area field...
 -> Questions
 
 ==endQuestioning==
-BLAH BLAH 
+
 -> END

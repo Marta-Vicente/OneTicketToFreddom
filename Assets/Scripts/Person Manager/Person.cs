@@ -35,19 +35,19 @@ public class Person : MonoBehaviour
         
     }
 
-    public string Speak()
+    public void Speak()
     {
         var ink = Resources.Load<TextAsset>(DialoguePath + "Test");
         Debug.Log("speaking");
         DialogueManager.GetInstance().EnterDialogueMode(ink);
 
-        return "Name: "  + characterName + "\n" +
+        /*return "Name: "  + characterName + "\n" +
                "Age:" + age + "\n \n" +
                description + "\n \n" +
                "Threat: " + ((threatLevel == -1) ? "?" : threatLevel) + "\n" +
                ((string.IsNullOrEmpty(threatLevelJustification)) ? "" : "( " + threatLevelJustification + " )") + "\n \n" +
                "health status: " + ((healthStatus == -1) ? "?" : healthStatus) + "\n" +
-               "( " + healthStatusDescription + ")";
+               "( " + healthStatusDescription + ")";*/
     }
 
     public string getName()

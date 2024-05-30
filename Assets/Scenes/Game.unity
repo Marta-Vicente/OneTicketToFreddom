@@ -976,30 +976,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 700282105429064358, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2271955474730444804, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 2271955474730444804, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 4272349292055857880, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186372859995869920, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6186372859995869920, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7105966449391824495, guid: be3cf05123461f24aa246bcff89a7d44, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3514,7 +3490,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 310112530}
-  - {fileID: 1735990984}
   - {fileID: 868760109}
+  - {fileID: 1735990984}
   - {fileID: 955118073}
   - {fileID: 396060356}
