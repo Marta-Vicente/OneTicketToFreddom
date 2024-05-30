@@ -48,13 +48,10 @@ public class PersonManager : MonoBehaviour
             //DontDestroyOnLoad(this);
         }
     }
-
-    public Text characterText;
-    
     public List<Image> charactersImageList = new List<Image>();
 
-    [SerializeField] Text ticketCounter;
-    [SerializeField] Text personsRemainingText;
+    [SerializeField] TextMeshProUGUI ticketCounter;
+    [SerializeField] TextMeshProUGUI personsRemainingText;
     private int personsRemainingCounter;
 
     public GameObject personPrefab;     //person template
@@ -86,9 +83,6 @@ public class PersonManager : MonoBehaviour
         // Parse the JSON data
         peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
 
-        //person info
-        characterText.text = " ";
-
         personsRemainingCounter = peoplePerDay;
 
         numberOfNews = seatsAvailable;
@@ -116,10 +110,7 @@ public class PersonManager : MonoBehaviour
             ChangeImageStatus(true, _currentCharacter);
             _currentCharacter.Speak();
 
-            if (personsRemainingCounter <= 0)
-                personsRemainingText.text = "Remaining number of people to check : 0";
-            else
-                personsRemainingText.text = "Remaining number of people to check : " + personsRemainingCounter;
+            personsRemainingText.text = "Remaining number of people to check : " + personsRemainingCounter;
         }
 
         ticketCounter.text = "Available Seats: " + seatsAvailableCounter;

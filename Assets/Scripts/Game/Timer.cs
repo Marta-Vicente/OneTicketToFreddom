@@ -44,5 +44,10 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public void StartTimer()
+    {
+        runTimer = false;
+    }
+
     //add what happens when it reaches 0
 }

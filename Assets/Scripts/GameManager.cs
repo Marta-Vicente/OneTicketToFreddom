@@ -137,14 +137,11 @@ public class GameManager : MonoBehaviour
         eventDescription.text = gameplayEventInfo.description;
         eventScreen.SetActive(true);
         eventScreen.transform.localScale = Vector3.zero;
+        
         var sequence = DOTween.Sequence();
         sequence.Append(eventScreen.transform.DOScale(Vector3.one, 0.7f));
-        sequence.Append(eventScreen.transform.DOScale(Vector3.zero, 0.7f).SetDelay(10f)).OnComplete(() =>
-        {
-            eventScreen.SetActive(false);
-            Timer.Instance.runTimer = true;
-        });
-
+        sequence.Append(eventScreen.transform.DOScale(Vector3.zero, 0.7f).SetDelay(10f));
+        
         PersonManager.Instance.seatsAvailable += gameplayEventInfo.availableSeatModifier;
     }
 
@@ -156,7 +153,6 @@ public class GameManager : MonoBehaviour
         _dayCounter = 0;
         _weekCounter++;
         GameplayeEventEffect(gameplayEventInfos[UnityEngine.Random.Range(0, gameplayEventInfos.Count)]);
-        pm.NewDay();
     }
 
     public void EndWeek()
