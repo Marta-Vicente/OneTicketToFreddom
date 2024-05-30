@@ -122,6 +122,50 @@
             "consequenceOfRejecting": "Tenebris health system on the verge of collapse after the closure of another dialysis unit."
         },
         {
+            "characterName": "Eliseu",
+            "age": 71,
+            "threatLevel": 4,
+            "threatLevelJustification": "Could kill again.",
+            "healthStatus": 1,
+            "healthStatusDescription": "Terminal cancer, only has a few days of life left.",
+            "description": "A murderer who killed anti-regime innocents during a peaceful march. He's finally out of prison after 40 years, he's dying of cancer and he just wants to spend his last moments with his children who fled to Aethel.",
+            "consequenceOfAccepting": "The Tenebris Butcher has died of cancer last night in Aethel. Eliseu was in jail for 40 years after having killed anti-regime innocents during a peaceful march.",
+            "consequenceOfRejecting": "Dead body found next to the Tenebris Train Station. Authorities are investigating this gruesome event."
+        },
+        {
+            "characterName": "Finnian",
+            "age": 45,
+            "threatLevel": 5,
+            "threatLevelJustification": null,
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "An undercover state police officer who is suspicious of Hermes' plan to help the poorest population escape to Aethel.",
+            "consequenceOfAccepting": "Authorities have raided the Tenebris Train Station after suspicions of rebel activity. Every worker will be subject to interrogation.",
+            "consequenceOfRejecting": "\"Tenebris Train Station is the perfect example of Tenebris efficiency\", says our wise leader."
+        },
+        {
+            "characterName": "Gaia",
+            "age": 40,
+            "threatLevel": 4,
+            "threatLevelJustification": "She might turn you over to obtain a pardon.",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "Former pro-regime singer. She was a big star until five years ago, when she was involved in a sex scandal with another woman, an actress also from the regime. Since then, she has lived in hiding and in poverty. Despite her affection for the Tenebris regime, she wants to go to Aethel to rebuild her life and continue singing.",
+            "consequenceOfAccepting": "The diva is back! Gaia, now living in Aethel, will be giving a concert in Aethel's Hall and the tickets have sold like crazy.",
+            "consequenceOfRejecting": "The fallen diva Gaia has promised to give an explosive interview: \"Some people in Tenebris seem to have gonne off tracks...\""
+        },
+        {
+            "characterName": "Karl",
+            "age": 70,
+            "threatLevel": 3,
+            "threatLevelJustification": "Authorities don't know that he still writes, but he has the power to expose the regime.",
+            "healthStatus": 3,
+            "healthStatusDescription": "Heart problems under control.",
+            "description": "Writer whose works were banned by the regime for inciting critical thinking and resistance. He lives in hiding and writes under a pseudonym. His health is deteriorating due to his heart problems.",
+            "consequenceOfAccepting": "After years of writing under a pseudonym and having his works banished by the government in Tenebris for inciting critical thinking and resistance, Karl will finally be able to publish his critic against the regime.",
+            "consequenceOfRejecting": "Karl is put on Tenebris black list."
+        },
+        {
             "characterName": "Ursula",
             "age": 60,
             "threatLevel": 3,
