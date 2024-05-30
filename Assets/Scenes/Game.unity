@@ -1597,6 +1597,8 @@ MonoBehaviour:
   - {fileID: 1913262976}
   - {fileID: 1267162307}
   - {fileID: 1881434006}
+  acceptButton: {fileID: 1429031890}
+  rejectButton: {fileID: 2086479463}
   ticketCounter: {fileID: 109156290}
   personsRemainingText: {fileID: 1884879048}
   personPrefab: {fileID: 1934732738}

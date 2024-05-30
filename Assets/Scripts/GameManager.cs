@@ -153,6 +153,10 @@ public class GameManager : MonoBehaviour
         _dayCounter = 0;
         _weekCounter++;
         GameplayeEventEffect(gameplayEventInfos[UnityEngine.Random.Range(0, gameplayEventInfos.Count)]);
+        if (_dayCounter > 1)
+        {
+            pm.NewDay();
+        }
     }
 
     public void EndWeek()

@@ -72,17 +72,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (dialogueIsPlaying && Input.GetMouseButtonDown(0))
+        if (dialogueIsPlaying && Input.GetMouseButtonDown(0) && !makingChoices)
         {
-            foreach (var choice in choices)
-            {
-                var hasChoices = choice.activeSelf;
-                if (hasChoices)
-                {
-                    return;
-                }
-            }
-            
             ContinueStory();
         }
     }
@@ -107,7 +98,6 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ContinueStory(){
-        
         if(currentStory.canContinue)
         {
             dialogueLength = 3;
@@ -159,6 +149,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void MakeChoice(int choiceIndex){
+        Debug.Log("Make Choice");
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
         makingChoices = false;

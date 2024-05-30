@@ -50,16 +50,16 @@ public class PersonManager : MonoBehaviour
     }
     public List<Image> charactersImageList = new List<Image>();
 
-    [SerializeField] TextMeshProUGUI ticketCounter;
-    [SerializeField] TextMeshProUGUI personsRemainingText;
-    private int personsRemainingCounter;
+    [SerializeField] private Button acceptButton, rejectButton;
+    [SerializeField] private TextMeshProUGUI ticketCounter, personsRemainingText;
+    private int _personsRemainingCounter;
 
     public GameObject personPrefab;     //person template
     public string peopleJsonFileName = "people.json";       //JSON with characters' info
     public int peoplePerDay;       //number of people who show up in one day
     public int seatsAvailable;     //number of seats available to give
     public int numberOfNews;     //number of news that will appear in the newspaper at the end of the week
-    PeopleArray peopleData;                         //characters' info read from JSON
+    private PeopleArray _peopleData;                         //characters' info read from JSON
 
     private bool _personSpeaking;
     private Person _currentCharacter;
@@ -81,9 +81,9 @@ public class PersonManager : MonoBehaviour
         string jsonContent = File.ReadAllText(filePath);
 
         // Parse the JSON data
-        peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
+        _peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
 
-        personsRemainingCounter = peoplePerDay;
+        _personsRemainingCounter = peoplePerDay;
 
         numberOfNews = seatsAvailable;
         seatsAvailableCounter = seatsAvailable;
@@ -109,8 +109,7 @@ public class PersonManager : MonoBehaviour
             _currentCharacter = dailyCharacters[0];
             ChangeImageStatus(true, _currentCharacter);
             _currentCharacter.Speak();
-
-            personsRemainingText.text = "Remaining number of people to check : " + personsRemainingCounter;
+            personsRemainingText.text = "Remaining number of people to check : " + _personsRemainingCounter;
         }
 
         ticketCounter.text = "Available Seats: " + seatsAvailableCounter;
@@ -118,10 +117,13 @@ public class PersonManager : MonoBehaviour
     
     public void AcceptClicked()
     {
+        if (seatsAvailableCounter <= 0)
+            return;
+        
         _accepted = true;
         GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel);
 
-        peopleData.people = ChoosePerson(peopleData.people, _currentCharacter.personData);
+        _peopleData.people = ChoosePerson(_peopleData.people, _currentCharacter.personData);
         seatsAvailableCounter--;
         Debug.Log("You accepted " + _currentCharacter.characterName);
         if (!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))  //if not seen yet
@@ -146,9 +148,10 @@ public class PersonManager : MonoBehaviour
         }
         
         _accepted = false;
-        --personsRemainingCounter;
+        _personsRemainingCounter--;
         ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
+        acceptButton.interactable = seatsAvailable > 0;
     }
 
     public void RejectClicked()
@@ -169,10 +172,9 @@ public class PersonManager : MonoBehaviour
         }
         
         _rejected = false;
-        --personsRemainingCounter;
+        _personsRemainingCounter--;
         ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
-        
     }
 
     //choose randomly who shows up in this day
@@ -214,8 +216,8 @@ public class PersonManager : MonoBehaviour
     //Returns the people that will show up this day
     public void NewDay()
     {
-        dailyCharacters = ShowUpCharacters(peopleData.people);
-        personsRemainingCounter = peoplePerDay;
+        dailyCharacters = ShowUpCharacters(_peopleData.people);
+        _personsRemainingCounter = peoplePerDay;
         NewCharacter();
     }
 

@@ -37,7 +37,12 @@ public class Person : MonoBehaviour
 
     public void Speak()
     {
-        var ink = Resources.Load<TextAsset>(DialoguePath + "Test");
+        Debug.Log(characterName);
+        var ink = Resources.Load<TextAsset>(DialoguePath + characterName);
+        if (ReferenceEquals (ink, null))
+        {
+            ink = Resources.Load<TextAsset>(DialoguePath + "Test");
+        }
         Debug.Log("speaking");
         DialogueManager.GetInstance().EnterDialogueMode(ink);
 
