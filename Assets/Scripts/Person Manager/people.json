@@ -47,7 +47,7 @@
         {
             "characterName": "Vera",
             "age": 36,
-            "threatLevel": -1,
+            "threatLevel": 5,
             "threatLevelJustification": null,
             "healthStatus": -1,
             "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms started 2 days after her daughter's.",
@@ -69,7 +69,7 @@
         {
             "characterName": "James",
             "age": 32,
-            "threatLevel": -1,
+            "threatLevel": 4,
             "threatLevelJustification": "Nothing may happen or he can die any moment due to his disease.",
             "healthStatus": 0,
             "healthStatusDescription": "He has a rare disease which might have a 10% chance of being healed by a specialist.",
@@ -91,7 +91,7 @@
         {
             "characterName": "Bianca",
             "age": 13,
-            "threatLevel": -1,
+            "threatLevel": 4,
             "threatLevelJustification": null,
             "healthStatus": -1,
             "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms have been getting worse.",
@@ -163,7 +163,29 @@
             "healthStatusDescription": "Heart problems under control.",
             "description": "Writer whose works were banned by the regime for inciting critical thinking and resistance. He lives in hiding and writes under a pseudonym. His health is deteriorating due to his heart problems.",
             "consequenceOfAccepting": "After years of writing under a pseudonym and having his works banished by the government in Tenebris for inciting critical thinking and resistance, Karl will finally be able to publish his critic against the regime.",
-            "consequenceOfRejecting": "Karl is put on Tenebris black list."
+            "consequenceOfRejecting": "The writer Karl is put on Tenebris black list."
+        },
+        {
+            "characterName": "Adele",
+            "age": 28,
+            "threatLevel": 5,
+            "threatLevelJustification": "Under surveillance.",
+            "healthStatus": 4,
+            "healthStatusDescription": "Stressed.",
+            "description": "She is an anti-regime primary teacher who is caught not following the curriculum plan. She is healthy, but the stress is starting to get to her because she is under surveillance.",
+            "consequenceOfAccepting": "\"Children in Tenebris are being brainwashed with propaganda\" according to exiled primary teacher Adele.",
+            "consequenceOfRejecting": "Primary teacher causes a scene in school."
+        },
+        {
+            "characterName": "Nelio",
+            "age": 62,
+            "threatLevel": 5,
+            "threatLevelJustification": "Chief of police.",
+            "healthStatus": 5,
+            "healthStatusDescription": "Healthy.",
+            "description": "Chief of police.",
+            "consequenceOfAccepting": "Police chief Nelio to be promoted after meeting with Tenebris governor.",
+            "consequenceOfRejecting": "Tenebris brand new district to be fully-built with galvanized steel and eco-friendly wood veneers."
         },
         {
             "characterName": "Ursula",
@@ -174,7 +196,7 @@
             "healthStatusDescription": "Has diabetes.",
             "description": "She is a free spirit, who wishes to live her life as she wishes, with no government telling her what she can or can't do.",
             "consequenceOfAccepting": "Rumours have been circulating about a secret way to escape Tenebris. The authorities will not allow any reference to this outrageous matter.",
-            "consequenceOfRejecting": "As days go by, getting EpiPens and proper medication is really hard... More and more people have been dying from something like this that can easily be managed."
+            "consequenceOfRejecting": "As days go by, getting insulin pens and proper medication gets harder... More and more people have been dying from something that could be easily managed."
         },
         {
             "characterName": "Woody",
@@ -212,7 +234,7 @@
         {
             "characterName": "Lev",
             "age": 84,
-            "threatLevel": -1,
+            "threatLevel": 4,
             "threatLevelJustification": "He might get you into trouble if he doesn't agree with your decision.",
             "healthStatus": 2,
             "healthStatusDescription": "He has mobility and breathing issues.",
@@ -256,7 +278,7 @@
         {
             "characterName": "Lloyd",
             "age": 49,
-            "threatLevel": -1,
+            "threatLevel": 4,
             "threatLevelJustification": "He may be kept under surveillance.",
             "healthStatus": 5,
             "healthStatusDescription": "Healthy.",
@@ -267,7 +289,7 @@
         {
             "characterName": "Jasper",
             "age": 31,
-            "threatLevel": -1,
+            "threatLevel": 3,
             "threatLevelJustification": "Having someone after him might draw extra attentions on yourself.",
             "healthStatus": 5,
             "healthStatusDescription": "Healthy.",
