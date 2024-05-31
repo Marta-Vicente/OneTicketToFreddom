@@ -19,13 +19,13 @@ Yes, it's me! But don't worry, I'm a reformed killer, I just want a ticket.
 -> Questions
 
 == Questions ==
-    *[State your name and age.]  //name and age
+    *[State your name and age.]
         -> nameAnswer
-    *{extra_question_bool} [Are you feeling well?]     //extra question
+    *{extra_question_bool} [Are you feeling well?]
         -> randomAnswer
-    * {followUpQuestion} [That's not the name in your work certificate.]    //follow up question
+    * {followUpQuestion} [That's not the name in your work certificate.]
         -> followUpAnswer
-    * {followUpQuestion2} [Without the real documents you can't pass.]    //follow up question
+    * {followUpQuestion2} [Without the real documents you can't pass.]
         -> followUpAnswer2
     * {medicalCertificate} [Do you have a medical certificate?]
         -> medicalCertificateAnswer

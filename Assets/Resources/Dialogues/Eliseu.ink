@@ -20,13 +20,13 @@ Yes, it's me! But don't worry, I'm a reformed killer, I just want a ticket.
 -> Questions
 
 == Questions ==
-    *[State your name and age.]  //name and age
+    *[State your name and age.]
         -> nameAnswer
-    *[Why are you travelling with us?]    //motif
+    *[Why are you travelling with us?]
         -> reasonAnswer
-    *{extra_question_bool} [Are you feeling well?]     //extra question
+    *{extra_question_bool} [Are you feeling well?]
         -> randomAnswer
-    * {followUpQuestion} [What disease do you have?]    //follow up question
+    * {followUpQuestion} [What disease do you have?]
         -> followUpAnswer
     * {medicalCertificate} [Do you have a medical certificate?]
         -> medicalCertificateAnswer

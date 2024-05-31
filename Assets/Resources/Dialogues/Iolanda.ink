@@ -14,13 +14,13 @@ VAR medicalCertificate = false
 -> Questions
     
 == Questions ==
-    *[State your name and age.]  //name and age
+    *[State your name and age.]
         -> nameAnswer
-    *[Why are you travelling with us?]    //motif
+    *[Why are you travelling with us?]
         -> reasonAnswer
-    *{extra_question_bool} [extra]     //extra question
+    *{extra_question_bool} [extra]
         -> randomAnswer
-    * {followUpQuestion} [follow up]    //follow up question
+    * {followUpQuestion} [follow up]
         -> followUpAnswer
     * {medicalCertificate} [Do you have a medical certificate?]
         -> medicalCertificateAnswer

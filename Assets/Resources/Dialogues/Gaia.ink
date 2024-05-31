@@ -15,15 +15,15 @@ VAR medicalCertificate = false
 -> Questions
     
 == Questions ==
-    *[State your name and age.]  //name and age
+    *[State your name and age.]
         -> nameAnswer
-    * {followUpQuestion} [Madam, I have to ask everyone these questions. What is your name and age?]    //follow up question
+    * {followUpQuestion} [Madam, I have to ask everyone these questions. What is your name and age?]
         -> followUpAnswer
-    * {followUpQuestion2} [What is your age...?]    //follow up question
+    * {followUpQuestion2} [What is your age...?]
         -> followUpAnswer2
-    *{followUpQuestion2} [I haven't seen you for a while... Not since you were caught with that actress...]     //extra question
+    *{followUpQuestion2} [I haven't seen you for a while... Not since you were caught with that actress...]
         -> randomAnswer
-    *[Why are you travelling with us?]    //motif
+    *[Why are you travelling with us?]
         -> reasonAnswer
     *[Finish dialogue]
         -> endQuestioning
