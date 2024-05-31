@@ -144,6 +144,17 @@
             "consequenceOfRejecting": "\"Tenebris Train Station is the perfect example of Tenebris efficiency\", says our wise leader."
         },
         {
+            "characterName": "Vivi",
+            "age": 9,
+            "threatLevel": 5,
+            "threatLevelJustification": "She's working for the police.",
+            "healthStatus": 3,
+            "healthStatusDescription": "She is sick but she's not dying.",
+            "description": "An homeless orphan who is being used by the police to investigate the train station.",
+            "consequenceOfAccepting": "Authorities have raided the Tenebris Train Station after suspicions of rebel activity. Every worker will be subject to interrogation.",
+            "consequenceOfRejecting": "The heartbraking story of Vivi, the homeless orphan who lives in front of the police station."
+        },
+        {
             "characterName": "Gaia",
             "age": 40,
             "threatLevel": 4,
@@ -186,6 +197,17 @@
             "description": "Chief of police.",
             "consequenceOfAccepting": "Police chief Nelio to be promoted after meeting with Tenebris governor.",
             "consequenceOfRejecting": "Tenebris brand new district to be fully-built with galvanized steel and eco-friendly wood veneers."
+        },
+        {
+            "characterName": "Tony",
+            "age": 60,
+            "threatLevel": 5,
+            "threatLevelJustification": "Police is after him.",
+            "healthStatus": 2,
+            "healthStatusDescription": "Diabetic with no access to medication.",
+            "description": "Journalist who spent his life exposing the injustices of the regime. After publishing a story about government corruption, he was declared an enemy of the state. He was arrested but managed to escape and is being sought by the government. He suffers from diabetes and no longer has access to medication in Tenebris.",
+            "consequenceOfAccepting": "Dissident journalist Tony dies on a train heading to Aethel. Authorities are investigating how the fugitive was able to get a ticket.",
+            "consequenceOfRejecting": "Searches for dissident journalist Tony continue. \"We are very close\" says the chief officer Nelio."
         },
         {
             "characterName": "Ursula",
