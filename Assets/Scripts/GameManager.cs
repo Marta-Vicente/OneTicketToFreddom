@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     private float suspicion = 0;
     [HideInInspector] public float susModifier;
+    private float timeSpent = 0;
 
     // Highscores
     int numberSaved = 0;
@@ -57,6 +59,36 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeSpent += Time.deltaTime;
+    }
+
+    // Returns if it belongs to the first, second or third state of suspicion based in timer
+    public int TimerState() {
+        int state = 1;
+
+        if (timeSpent >= 10)
+        {
+            state = 3;
+        }
+        else if (timeSpent >= 5)
+        {
+            state = 2;
+        }
+        Debug.Log("State is " + state);
+        return state;
+    }
+    public void ResetTimer()
+    {
+        timeSpent = 0;
+    }
+    private float StateSuspicionMultiplier()
+    {
+        int state = TimerState();
+
+        // suspicion multi will be 0.75, 1 or 1.25 for each respective state 1, 2 or 3
+        float suspicionMulti = 0.25f * (state - 2) + 1;
+
+        return suspicionMulti;
     }
 
     // Change suspicion and reset week vars
@@ -99,6 +131,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        float suspicionMultiplier = StateSuspicionMultiplier();
+
         seatsAvailableCounter--;
         people++;
         if (highPrio) {
@@ -108,12 +142,14 @@ public class GameManager : MonoBehaviour
         // If threatLevel = 1, suspicion gain will be negative
         if (threatLevel < 2)
         {
-            suspicion_gain -= 4;
+            suspicion_gain -= 4 / suspicionMultiplier;
         }
         else
         {
-            suspicion_gain += (threatLevel - 1) * 2.5f;
+            suspicion_gain += (threatLevel - 1) * 2.5f * suspicionMultiplier;
         }
+
+
     }
 
     // Changes the amount of seats by change amount

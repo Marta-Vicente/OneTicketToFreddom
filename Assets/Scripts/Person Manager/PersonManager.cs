@@ -102,6 +102,7 @@ public class PersonManager : MonoBehaviour
             ChangeImageStatus(true, _currentCharacter);
             _currentCharacter.Speak();
             personsRemainingText.text = "Remaining number of people to check : " + _personsRemainingCounter;
+            GameManager.Instance.ResetTimer();
         }
 
         ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
