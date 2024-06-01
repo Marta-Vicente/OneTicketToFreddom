@@ -98,7 +98,7 @@ public class PersonManager : MonoBehaviour
 
     public void NewCharacter()
     {
-        if(GameManager.Instance.seatsAvailableCounter != 0 && dailyCharacters.Count > 0)
+        if(dailyCharacters.Count > 0)
         {
             _currentCharacter = dailyCharacters[0];
             ChangeImageStatus(true, _currentCharacter);
