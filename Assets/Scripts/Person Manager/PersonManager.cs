@@ -57,14 +57,10 @@ public class PersonManager : MonoBehaviour
     public GameObject personPrefab;     //person template
     public string peopleJsonFileName = "people.json";       //JSON with characters' info
     public int peoplePerDay;       //number of people who show up in one day
-    public int seatsAvailable;     //number of seats available to give
-    public int numberOfNews;     //number of news that will appear in the newspaper at the end of the week
     private PeopleArray _peopleData;                         //characters' info read from JSON
 
     private bool _personSpeaking;
     private Person _currentCharacter;
-    
-    [HideInInspector] public int seatsAvailableCounter;
 
     //KEYS
     private bool _accepted = false;
@@ -84,9 +80,6 @@ public class PersonManager : MonoBehaviour
         _peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
 
         _personsRemainingCounter = peoplePerDay;
-
-        numberOfNews = seatsAvailable;
-        seatsAvailableCounter = seatsAvailable;
         GameManager.Instance.NewWeek();
     }
 
@@ -104,7 +97,7 @@ public class PersonManager : MonoBehaviour
 
     public void NewCharacter()
     {
-        if(seatsAvailableCounter != 0 && dailyCharacters.Count > 0)
+        if(GameManager.Instance.seatsAvailableCounter != 0 && dailyCharacters.Count > 0)
         {
             _currentCharacter = dailyCharacters[0];
             ChangeImageStatus(true, _currentCharacter);
@@ -112,19 +105,19 @@ public class PersonManager : MonoBehaviour
             personsRemainingText.text = "Remaining number of people to check : " + _personsRemainingCounter;
         }
 
-        ticketCounter.text = "Available Seats: " + seatsAvailableCounter;
+        ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
     }
     
     public void AcceptClicked()
     {
-        if (seatsAvailableCounter <= 0)
+        if (GameManager.Instance.seatsAvailableCounter <= 0)
             return;
         
         _accepted = true;
         GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel);
 
         _peopleData.people = ChoosePerson(_peopleData.people, _currentCharacter.personData);
-        seatsAvailableCounter--;
+        GameManager.Instance.seatsAvailableCounter--;
         Debug.Log("You accepted " + _currentCharacter.characterName);
         if (!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))  //if not seen yet
         {
@@ -151,7 +144,7 @@ public class PersonManager : MonoBehaviour
         _personsRemainingCounter--;
         ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
-        acceptButton.interactable = seatsAvailable > 0;
+        acceptButton.interactable = GameManager.Instance.seatsAvailablePerWeek > 0;
     }
 
     public void RejectClicked()

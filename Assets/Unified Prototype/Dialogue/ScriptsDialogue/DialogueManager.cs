@@ -103,6 +103,12 @@ public class DialogueManager : MonoBehaviour
             dialogueLength = 3;
             string sentence = currentStory.Continue();
 
+            if (sentence.Equals(""))
+            {
+                ContinueStory();
+                return;
+            }
+
             List<string> tags = currentStory.currentTags;
             
             if (tags.Any())
