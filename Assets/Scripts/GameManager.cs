@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     private int _dayCounter;
 
     private float suspicion = 0;
-    [HideInInspector] public float susModifier;
+    [HideInInspector] public float susModifier = 1;
     private float timeSpent = 0;
 
     // Highscores
@@ -96,12 +96,14 @@ public class GameManager : MonoBehaviour
     {
         if (suspicion_gain > 0)
         {
-            suspicion += suspicion_gain * (1 + sus_increase * (_weekCounter - 1));
+            suspicion += suspicion_gain * (1 + sus_increase * (_weekCounter - 1)) * susModifier;
         }
         else
         {
             suspicion += suspicion_gain;
         }
+
+        susModifier = 1;
 
         if (suspicion < 0)
         {
@@ -224,5 +226,9 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(Delay());
+    }
+
+    public void SetSusModifier(int newMod) { 
+        susModifier = newMod;
     }
 }

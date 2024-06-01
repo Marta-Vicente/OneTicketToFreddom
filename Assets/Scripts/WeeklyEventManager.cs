@@ -22,7 +22,7 @@ public class WeeklyEventManager : MonoBehaviour
 
     public void SelectRandomEvent()
     {
-        var rng = Random.Range(0, 2);
+        var rng = Random.Range(0, 4);
         
         switch (rng)
         {
@@ -31,6 +31,12 @@ public class WeeklyEventManager : MonoBehaviour
                 break;
             case 1:
                 GenorousBenefactor();
+                break;
+            case 2:
+                SuspicionRises();
+                break;
+            case 3:
+                StateHoliday();
                 break;
         }
     }
@@ -48,6 +54,22 @@ public class WeeklyEventManager : MonoBehaviour
         CurrentGamplayEvent = ("Genorous Benefactor",
             "A genorous benefactor wants to help the cause. They have decided to donate a carriage to help with the effort.<br>Effect:<br>Available seats increase by +1");
         GameManager.Instance.AlterSeatsAmount(1);
+        UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
+    }
+
+    private void SuspicionRises()
+    {
+        CurrentGamplayEvent = ("Suspicion Rises",
+            "A set of revolts around Tenebris have put authorities on high alert. Policemen have been dispatched everywhere.<br>Effect:<br>Suspicion gain is doubled");
+        GameManager.Instance.SetSusModifier(2);
+        UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
+    }
+
+    private void StateHoliday()
+    {
+        CurrentGamplayEvent = ("State Holiday",
+            "This week is a state holiday. Policemen are nowhere to be seen. <br>Effect:<br>No suspicion will be accrued this week");
+        GameManager.Instance.SetSusModifier(0);
         UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
     }
 }
