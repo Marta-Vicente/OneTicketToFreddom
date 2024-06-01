@@ -26,9 +26,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
 
     [SerializeField] private GameObject dialogueTextBox;
-    [SerializeField] private TextMeshProUGUI name;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private Image portrait;
     
     [Header("Choice UI")]
     [SerializeField] private GameObject[] choices;

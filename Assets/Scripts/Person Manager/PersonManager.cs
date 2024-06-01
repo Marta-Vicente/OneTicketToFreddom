@@ -68,8 +68,6 @@ public class PersonManager : MonoBehaviour
     private bool _rejected = false;
     private List<Person> dailyCharacters;
     public List<(string, string)> consequences;  //list where the correct consequences are stored for each character we face
-    //KEYS 2
-    private bool keyPressed = false;    
 
     void Start()
     {

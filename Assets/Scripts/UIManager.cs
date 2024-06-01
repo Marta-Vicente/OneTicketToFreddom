@@ -53,13 +53,29 @@ public class UIManager : MonoBehaviour
         
         var sequence = DOTween.Sequence();
         sequence.Append(eventScreen.transform.DOScale(Vector3.one, 0.7f));
-        sequence.Append(eventScreen.transform.DOScale(Vector3.zero, 0.7f).SetDelay(10f));
     }
 
-    public void ShowConsequences()
+    public void ShowConsequences(List<(string, string)> consequences)
     {
+        foreach (var consequence in consequences)
+        {
+            var con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
+            var text = con.GetComponent<TextMeshProUGUI>();
+            text.text = consequence.Item2;
+        }
+        
+        Canvas.ForceUpdateCanvases();
+        consequencesScreen.SetActive(true);
+        
         var sequence = DOTween.Sequence();
         sequence.Append(consequencesScreen.transform.DOScale(Vector3.one, 0.7f));
-        sequence.Append(consequencesScreen.transform.DOScale(Vector3.zero, 0.7f).SetDelay(10f));
+    }
+
+    public void CleanUpConsequencesScreen()
+    {
+        for (int i = 0; i < consequencesScreen.transform.childCount; i++)
+        {
+            Destroy(consequencesScreen.transform.GetChild(i));
+        }
     }
 }

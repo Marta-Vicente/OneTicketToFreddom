@@ -136,6 +136,10 @@ public class GameManager : MonoBehaviour
 
     public void NewWeek()
     {
+        if (_weekCounter >= 1)
+        {
+            UIManager.Instance.ShowConsequences(PersonManager.Instance.consequences);
+        }
         WeekForwarder();
         var pm = PersonManager.Instance;
         pm.consequences = new List<(string, string)>(); //restart list after end of the week
