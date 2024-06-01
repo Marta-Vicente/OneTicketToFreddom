@@ -48,5 +48,6 @@ public class WeeklyEventManager : MonoBehaviour
         CurrentGamplayEvent = ("Genorous Benefactor",
             "A genorous benefactor wants to help the cause. They have decided to donate a carriage to help with the effort.<br>Effect:<br>Available seats increase by +1");
         GameManager.Instance.AlterSeatsAmount(1);
+        UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
     }
 }

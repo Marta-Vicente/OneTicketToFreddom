@@ -130,7 +130,10 @@ public class GameManager : MonoBehaviour
         _dayCounter = 0;
         _weekCounter++;
         WeeklyEventManager.Instance.SelectRandomEvent();
-        pm.NewDay();
+        if (_dayCounter > 1)
+        {
+            pm.NewDay();
+        }
     }
 
     public void EndWeek()
