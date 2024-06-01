@@ -40,8 +40,13 @@ public class GameManager : MonoBehaviour
     private int _weekCounter = 0;
     private int _dayCounter;
 
-    private double suspicion = 0;
+    private float suspicion = 0;
     [HideInInspector] public float susModifier;
+
+    // Highscores
+    int numberSaved = 0;
+    int highPrioSaved = 0;
+    int highPrioBuffer = 0;
 
     void Start()
     {
@@ -76,12 +81,17 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        highPrioSaved += highPrioBuffer;
+        numberSaved += people;
+
+        _suspicionBar.SetSuspicion(suspicion);
         people = 0;
+        highPrioBuffer = 0;
         suspicion_gain = 0;
         Console.WriteLine(_weekCounter);
     }
 
-    public void BoardPerson(int threatLevel)
+    public void BoardPerson(int threatLevel, bool highPrio)
     {
         if (people == seatsAvailableCounter)
         {
@@ -89,7 +99,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        seatsAvailableCounter--;
         people++;
+        if (highPrio) {
+            highPrioBuffer++;
+        }
 
         // If threatLevel = 1, suspicion gain will be negative
         if (threatLevel < 2)
@@ -98,10 +112,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            suspicion_gain += (threatLevel - 1) * 4;
+            suspicion_gain += (threatLevel - 1) * 2.5f;
         }
-
-        _suspicionBar.SetSuspicion(suspicion_gain);
     }
 
     // Changes the amount of seats by change amount

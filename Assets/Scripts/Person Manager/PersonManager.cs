@@ -115,10 +115,9 @@ public class PersonManager : MonoBehaviour
             return;
         
         _accepted = true;
-        GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel);
+        GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel, dailyCharacters[0].criticalSaving);
 
         _peopleData.people = ChoosePerson(_peopleData.people, _currentCharacter.personData);
-        GameManager.Instance.seatsAvailableCounter--;
         Debug.Log("You accepted " + _currentCharacter.characterName);
         if (!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))  //if not seen yet
         {
@@ -140,6 +139,7 @@ public class PersonManager : MonoBehaviour
             GameManager.Instance.NextDay();
             return;
         }
+        
         
         _accepted = false;
         _personsRemainingCounter--;
