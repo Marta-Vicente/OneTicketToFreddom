@@ -75,7 +75,8 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < consequencesScreen.transform.childCount; i++)
         {
-            Destroy(consequencesScreen.transform.GetChild(i));
+            var con = consequencesScreen.transform.GetChild(i);
+            Destroy(con.gameObject);
         }
     }
 }
