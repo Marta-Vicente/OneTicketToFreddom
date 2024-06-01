@@ -30,6 +30,7 @@ public class PersonData
     public string description;
     public string consequenceOfAccepting;
     public string consequenceOfRejecting;
+    public bool criticalSaving;
 }
 
 //************************************************PERSON MANAGER************************************************
@@ -196,6 +197,7 @@ public class PersonManager : MonoBehaviour
                 personComponent.description = personData.description;
                 personComponent.consequenceOfAccepting = personData.consequenceOfAccepting;
                 personComponent.consequenceOfRejecting = personData.consequenceOfRejecting;
+                personComponent.criticalSaving = personData.criticalSaving;
                 personComponent.personData = personData;
 
                 showedUpList.Add(personComponent);

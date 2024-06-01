@@ -9,7 +9,8 @@
             "healthStatusDescription": "Very malnourished.",
             "description": "Orphan - his parents died in an accident so he has no one to take care of him. He steals to eat.",
             "consequenceOfAccepting": "A 6-years old child from Tenebris was hospitalized in Aethel today due to poor nutrition. The boy is out of danger and will be welcomed by an institution after being discharged since he has no known family.",
-            "consequenceOfRejecting": "A 6-years old homeless child was hospitalized today in Tenebris due to extreme poor nutrition. The doctors say there isn't much they can do other than trying to make the boy's end as peaceful as possible."
+            "consequenceOfRejecting": "A 6-years old homeless child was hospitalized today in Tenebris due to extreme poor nutrition. The doctors say there isn't much they can do other than trying to make the boy's end as peaceful as possible.",
+            "criticalSaving": false
         },
         {
             "characterName": "Iolanda",
@@ -20,7 +21,8 @@
             "healthStatusDescription": "Pregnant.",
             "description": "She wishes to flee, but her husband must stay behind not to attract attention.",
             "consequenceOfAccepting": "Iolanda, the pregnant woman who arrived from Tenebris this week has given birth to a girl. Both the mother and the baby are well. \"She will be able to live as a free woman. I only wish my husband was here as well...\"",
-            "consequenceOfRejecting": "53 births took place this week at the Tenebris Federal Hospital."
+            "consequenceOfRejecting": "53 births took place this week at the Tenebris Federal Hospital.",
+            "criticalSaving": false
         },
         {
             "characterName": "Lucius",
@@ -31,7 +33,8 @@
             "healthStatusDescription": "Back pain.",
             "description": "Accountant. He wishes to flee and go living with his sister who lives in Aethel.",
             "consequenceOfAccepting": "A heart-warming reunion took place yesterday as brother and sister reunited after 13 years apart. The brother, Lucius escaped from Tenebris this week, making this reunion possible after over a decade of having his visit requests denied.",
-            "consequenceOfRejecting": "A man was arrested today after trying to cross the border to Aethel. Lucius, 53, should expect a prison sentence of at least 6 years."
+            "consequenceOfRejecting": "A man was arrested today after trying to cross the border to Aethel. Lucius, 53, should expect a prison sentence of at least 6 years.",
+            "criticalSaving": false
         },
         {
             "characterName": "Letícia",
@@ -42,7 +45,8 @@
             "healthStatusDescription": "Although she is physically well, her mental state is very affected.",
             "description": "Married to Tom. She will only flee if her husband goes with her. She's her husband's caregiver.",
             "consequenceOfAccepting": "An old woman was arrested today in a train to Aethel. The woman was approached after showing signs of nervousness. During interrogation, she confessed she was trying to escape to Aethel. The authorities are investigating this case.",
-            "consequenceOfRejecting": "A woman was arrested today after breaking into the Tenebris Train Station. The old lady was in a hysterical state, screaming about her husband and train tickets."
+            "consequenceOfRejecting": "A woman was arrested today after breaking into the Tenebris Train Station. The old lady was in a hysterical state, screaming about her husband and train tickets.",
+            "criticalSaving": false
         },
         {
             "characterName": "Vera",
@@ -53,7 +57,8 @@
             "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms started 2 days after her daughter's.",
             "description": "Bianca's mother. She wishes to flee so that her daughter may grow up in a free world.",
             "consequenceOfAccepting": "The Aethel's health authorities are investigating an outbreak of a mysterious disease. There are 12 confirmed cases.",
-            "consequenceOfRejecting": "The Tenebris' health authorities are investigating an outbreak of a mysterious disease. There are 12 confirmed cases."
+            "consequenceOfRejecting": "The Tenebris' health authorities are investigating an outbreak of a mysterious disease. There are 12 confirmed cases.",
+            "criticalSaving": false
         },
         {
             "characterName": "Alana",
@@ -64,7 +69,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "She wishes to flee to freely enter University education and to start her adult life as a free woman.",
             "consequenceOfAccepting": "Aethel is happy to announce that the government will pay the tuition fees of Alana, the young lady who escaped Tenebris this week.",
-            "consequenceOfRejecting": "A new academic year is about to begin, with 249 new students who will study the best way to serve our noble state of Tenebris."
+            "consequenceOfRejecting": "A new academic year is about to begin, with 249 new students who will study the best way to serve our noble state of Tenebris.",
+            "criticalSaving": false
         },
         {
             "characterName": "James",
@@ -75,7 +81,8 @@
             "healthStatusDescription": "He has a rare disease which might have a 10% chance of being healed by a specialist.",
             "description": "Single with nobody waiting for him on the other side.",
             "consequenceOfAccepting": "James, the man with a rare disease who arrived from Tenebris this week started his treatments in Aethel. The specialists say they can't make any promises since this is such a rare disease.",
-            "consequenceOfRejecting": "A man with a rare disease was hospitalized today in the Tenebris Federal Hospital. There is little hope for this man since there are no specialists in this disease in Tenebris."
+            "consequenceOfRejecting": "A man with a rare disease was hospitalized today in the Tenebris Federal Hospital. There is little hope for this man since there are no specialists in this disease in Tenebris.",
+            "criticalSaving": true
         },
         {
             "characterName": "Tom",
@@ -86,7 +93,8 @@
             "healthStatusDescription": "His only option to heal physically is to leave and go to a specialized hospital.",
             "description": "Married to Letícia. Very reduced mobility (stucked to a wheelchair). He will only flee if his wife goes with him.",
             "consequenceOfAccepting": "After almost 3 decades without walking, Tom may be about to give his first steps again. The man who escaped from Tenebris will initiate Aethel's innovative treatment next week.",
-            "consequenceOfRejecting": "The most recent reports indicate that over 638 people who are in a wheelchair in Tenebris could be treated if the right treatments were available in the country."
+            "consequenceOfRejecting": "The most recent reports indicate that over 638 people who are in a wheelchair in Tenebris could be treated if the right treatments were available in the country.",
+            "criticalSaving": true
         },
         {
             "characterName": "Bianca",
@@ -97,7 +105,8 @@
             "healthStatusDescription": "Asthma, high fever, headaches, vomiting. She doesn't know what she has. Symptoms have been getting worse.",
             "description": "Vera's daughter. Must be with her mother.",
             "consequenceOfAccepting": "The Aethel's health authorities are investigating an outbreak of a mysterious disease. There are 56 confirmed cases.",
-            "consequenceOfRejecting": "The Tenebris' health authorities are investigating an outbreak of a mysterious disease. There are 56 confirmed cases."
+            "consequenceOfRejecting": "The Tenebris' health authorities are investigating an outbreak of a mysterious disease. There are 56 confirmed cases.",
+            "criticalSaving": false
         },
         {
             "characterName": "Pietro",
@@ -108,7 +117,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "He belongs to the opposition and has been publishing clandestine messages against the government which bring hope to people.",
             "consequenceOfAccepting": "The beloved leader of the Tenebris' opposition arrived today to Aethel. \"They want to take hope away from us, but we won't let them. Freedom will prevail!\", Pietro said to the hundreds of people who went to wait him in the main square.",
-            "consequenceOfRejecting": "Pietro, the leader of the anarchist opposition was arrested today for incitement to violence. The man shall be sentenced to life sentence."
+            "consequenceOfRejecting": "Pietro, the leader of the anarchist opposition was arrested today for incitement to violence. The man shall be sentenced to life sentence.",
+            "criticalSaving": true
         },
         {
             "characterName": "Elena",
@@ -119,7 +129,8 @@
             "healthStatusDescription": "She has arthritis, heart problems and kidney failure, which requires her to undergo dialysis every month. She can't afford any of the treatments.",
             "description": "Retired who dedicated her life to social activism, helping to organize peaceful resistance movements.",
             "consequenceOfAccepting": "Aethel is saving Tenebris: how Aethel's dialysis treatments are saving those who need in Tenebris.",
-            "consequenceOfRejecting": "Tenebris health system on the verge of collapse after the closure of another dialysis unit."
+            "consequenceOfRejecting": "Tenebris health system on the verge of collapse after the closure of another dialysis unit.",
+            "criticalSaving": true
         },
         {
             "characterName": "Eliseu",
@@ -130,7 +141,8 @@
             "healthStatusDescription": "Terminal cancer, only has a few days of life left.",
             "description": "A murderer who killed anti-regime innocents during a peaceful march. He's finally out of prison after 40 years, he's dying of cancer and he just wants to spend his last moments with his children who fled to Aethel.",
             "consequenceOfAccepting": "The Tenebris Butcher has died of cancer last night in Aethel. Eliseu was in jail for 40 years after having killed anti-regime innocents during a peaceful march.",
-            "consequenceOfRejecting": "Dead body found next to the Tenebris Train Station. Authorities are investigating this gruesome event."
+            "consequenceOfRejecting": "Dead body found next to the Tenebris Train Station. Authorities are investigating this gruesome event.",
+            "criticalSaving": false
         },
         {
             "characterName": "Finnian",
@@ -141,7 +153,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "An undercover state police officer who is suspicious of Hermes' plan to help the poorest population escape to Aethel.",
             "consequenceOfAccepting": "Authorities have raided the Tenebris Train Station after suspicions of rebel activity. Every worker will be subject to interrogation.",
-            "consequenceOfRejecting": "\"Tenebris Train Station is the perfect example of Tenebris efficiency\", says our wise leader."
+            "consequenceOfRejecting": "\"Tenebris Train Station is the perfect example of Tenebris efficiency\", says our wise leader.",
+            "criticalSaving": false
         },
         {
             "characterName": "Vivi",
@@ -152,7 +165,8 @@
             "healthStatusDescription": "She is sick but she's not dying.",
             "description": "An homeless orphan who is being used by the police to investigate the train station.",
             "consequenceOfAccepting": "Authorities have raided the Tenebris Train Station after suspicions of rebel activity. Every worker will be subject to interrogation.",
-            "consequenceOfRejecting": "The heartbraking story of Vivi, the homeless orphan who lives in front of the police station."
+            "consequenceOfRejecting": "The heartbraking story of Vivi, the homeless orphan who lives in front of the police station.",
+            "criticalSaving": false
         },
         {
             "characterName": "Gaia",
@@ -163,7 +177,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "Former pro-regime singer. She was a big star until five years ago, when she was involved in a sex scandal with another woman, an actress also from the regime. Since then, she has lived in hiding and in poverty. Despite her affection for the Tenebris regime, she wants to go to Aethel to rebuild her life and continue singing.",
             "consequenceOfAccepting": "The diva is back! Gaia, now living in Aethel, will be giving a concert in Aethel's Hall and the tickets have sold like crazy.",
-            "consequenceOfRejecting": "The fallen diva Gaia has promised to give an explosive interview: \"Some people in Tenebris seem to have gonne off tracks...\""
+            "consequenceOfRejecting": "The fallen diva Gaia has promised to give an explosive interview: \"Some people in Tenebris seem to have gonne off tracks...\"",
+            "criticalSaving": false
         },
         {
             "characterName": "Karl",
@@ -174,7 +189,8 @@
             "healthStatusDescription": "Heart problems under control.",
             "description": "Writer whose works were banned by the regime for inciting critical thinking and resistance. He lives in hiding and writes under a pseudonym. His health is deteriorating due to his heart problems.",
             "consequenceOfAccepting": "After years of writing under a pseudonym and having his works banished by the government in Tenebris for inciting critical thinking and resistance, Karl will finally be able to publish his critic against the regime.",
-            "consequenceOfRejecting": "The writer Karl is put on Tenebris black list."
+            "consequenceOfRejecting": "The writer Karl is put on Tenebris black list.",
+            "criticalSaving": false
         },
         {
             "characterName": "Adele",
@@ -185,7 +201,8 @@
             "healthStatusDescription": "Stressed.",
             "description": "She is an anti-regime primary teacher who is caught not following the curriculum plan. She is healthy, but the stress is starting to get to her because she is under surveillance.",
             "consequenceOfAccepting": "\"Children in Tenebris are being brainwashed with propaganda\" according to exiled primary teacher Adele.",
-            "consequenceOfRejecting": "Primary teacher causes a scene in school."
+            "consequenceOfRejecting": "Primary teacher causes a scene in school.",
+            "criticalSaving": false
         },
         {
             "characterName": "Nelio",
@@ -196,7 +213,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "Chief of police.",
             "consequenceOfAccepting": "Police chief Nelio to be promoted after meeting with Tenebris governor.",
-            "consequenceOfRejecting": "Tenebris brand new district to be fully-built with galvanized steel and eco-friendly wood veneers."
+            "consequenceOfRejecting": "Tenebris brand new district to be fully-built with galvanized steel and eco-friendly wood veneers.",
+            "criticalSaving": false
         },
         {
             "characterName": "Tony",
@@ -207,7 +225,8 @@
             "healthStatusDescription": "Diabetic with no access to medication.",
             "description": "Journalist who spent his life exposing the injustices of the regime. After publishing a story about government corruption, he was declared an enemy of the state. He was arrested but managed to escape and is being sought by the government. He suffers from diabetes and no longer has access to medication in Tenebris.",
             "consequenceOfAccepting": "Dissident journalist Tony dies on a train heading to Aethel. Authorities are investigating how the fugitive was able to get a ticket.",
-            "consequenceOfRejecting": "Searches for dissident journalist Tony continue. \"We are very close\" says the chief officer Nelio."
+            "consequenceOfRejecting": "Searches for dissident journalist Tony continue. \"We are very close\" says the chief officer Nelio.",
+            "criticalSaving": true
         },
         {
             "characterName": "Ursula",
@@ -218,7 +237,8 @@
             "healthStatusDescription": "Has diabetes.",
             "description": "She is a free spirit, who wishes to live her life as she wishes, with no government telling her what she can or can't do.",
             "consequenceOfAccepting": "Rumours have been circulating about a secret way to escape Tenebris. The authorities will not allow any reference to this outrageous matter.",
-            "consequenceOfRejecting": "As days go by, getting insulin pens and proper medication gets harder... More and more people have been dying from something that could be easily managed."
+            "consequenceOfRejecting": "As days go by, getting insulin pens and proper medication gets harder... More and more people have been dying from something that could be easily managed.",
+            "criticalSaving": false
         },
         {
             "characterName": "Woody",
@@ -229,7 +249,8 @@
             "healthStatusDescription": "Limp of the left leg.",
             "description": "He is a photojournalist who is tired of being limited by the government's censorship. He wishes to flee so that he can expose the truth to the entire world.",
             "consequenceOfAccepting": "Woody, the renowed photojournalist who escaped from Tenebris announced he will publish a photo book exposing the social conditions of the Tenebris population.",
-            "consequenceOfRejecting": "As Woody's photographs show, people are ecstatic for seeing their beloved leader of Tenebris."
+            "consequenceOfRejecting": "As Woody's photographs show, people are ecstatic for seeing their beloved leader of Tenebris.",
+            "criticalSaving": false
         },
         {
             "characterName": "George",
@@ -240,7 +261,8 @@
             "healthStatusDescription": "He has an old fracture in his right arm but it only hurts when he lifts heavy weights.",
             "description": "A civil rights activist who stands against the discrimination in Tenebris.",
             "consequenceOfAccepting": "George, the civil rights activist, announces he will create a new organization with the objective of exposing Tenebris' government.",
-            "consequenceOfRejecting": "The agitator George spent last night in prision for revolutionary speech."
+            "consequenceOfRejecting": "The agitator George spent last night in prison for revolutionary speech.",
+            "criticalSaving": true
         },
         {
             "characterName": "Greg",
@@ -251,7 +273,8 @@
             "healthStatusDescription": "He has minor medical issues due to his age such has cholesterol and back pains.",
             "description": "A wealthy man who has never stood up against the government. However, the trade limitation is affecting his business and now he wishes to flee to Aethel so he can expand his business.",
             "consequenceOfAccepting": "Businessman Greg announces he will open a new factory in Aethel which will employ over 156 people.",
-            "consequenceOfRejecting": "Businessman Greg announces the end of the collaboration between his company and the Tenebris Railway Company. The motives are still unknown but there are rumours that this might be some sort of revenge."
+            "consequenceOfRejecting": "Businessman Greg announces the end of the collaboration between his company and the Tenebris Railway Company. The motives are still unknown but there are rumours that this might be some sort of revenge.",
+            "criticalSaving": false
         },
         {
             "characterName": "Lev",
@@ -262,7 +285,8 @@
             "healthStatusDescription": "He has mobility and breathing issues.",
             "description": "Made his fortune as a gangster but he's retired from that life now, being only involved in investments. He wishes to see how it is to live in a free world before dying.",
             "consequenceOfAccepting": "Former gangster Lev has arrived to Aethel this week. Aethel's chief-officer say that there's nothing they can do since the crimes occured in Tenebris.",
-            "consequenceOfRejecting": "The Tenebris Train Station was assaulted tonight. Luckily nobody was hurt. Authorities suspect of the Peshkov Gang but the motivations are not clear."
+            "consequenceOfRejecting": "The Tenebris Train Station was assaulted tonight. Luckily nobody was hurt. Authorities suspect of the Peshkov Gang but the motivations are not clear.",
+            "criticalSaving": false
         },
         {
             "characterName": "Verena",
@@ -273,7 +297,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A civil rights activist who comes from a wealthy family. She stands against the discrimination in Tenebris but since her family holds some power, the authorities don't approach her directly.",
             "consequenceOfAccepting": "Civil rights activist and socialite Verena hosted a party last night to raise funds to help the civil rights organizations in Tenebris.",
-            "consequenceOfRejecting": "Socialite Verena hosted a party last night, with some of the most powerful man in Tenebris in the guest list."
+            "consequenceOfRejecting": "Socialite Verena hosted a party last night, with some of the most powerful man in Tenebris in the guest list.",
+            "criticalSaving": false
         },
         {
             "characterName": "Maria",
@@ -284,7 +309,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A secretary who wishes to enter politics in order to produce real changes in Tenebris.",
             "consequenceOfAccepting": "Aethel's government announced today the integration of 3 political refugees from Tenebris as advisors. \"It is an important first step, but we need more.\", says Maria, one of the new advisors.",
-            "consequenceOfRejecting": "The National Secretaries Convention will take place next week. This will be a lovely opportunity for them to share their passion for desks and pens!"
+            "consequenceOfRejecting": "The National Secretaries Convention will take place next week. This will be a lovely opportunity for them to share their passion for desks and pens!",
+            "criticalSaving": false
         },
         {
             "characterName": "Evie",
@@ -295,7 +321,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A talented actress who is tired of playing the same propaganda over and over again. She wishes to flee so that she can play every character she can.",
             "consequenceOfAccepting": "The young actress Evie has already secured her first role after escaping Tenebris. She will donate her share of the film's profits to civil rights organizations in Tenebris.",
-            "consequenceOfRejecting": "The new film starring Evie will be a wonderful demonstration of Tenebris' superiority in the arts."
+            "consequenceOfRejecting": "The new film starring Evie will be a wonderful demonstration of Tenebris' superiority in the arts.",
+            "criticalSaving": false
         },
         {
             "characterName": "Lloyd",
@@ -306,7 +333,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A congressman who tries to improve people's lives without drawing too much attention on himself. The government leaves him free to show that they allow opposition.",
             "consequenceOfAccepting": "Tenebris' former congressman announces ambitious sanctions package against Tenebris.",
-            "consequenceOfRejecting": "Congressman Lloyd helps approving new measure which will ensure that every person in Tenebris has access to socks."
+            "consequenceOfRejecting": "Congressman Lloyd helps approving new measure which will ensure that every person in Tenebris has access to socks.",
+            "criticalSaving": false
         },
         {
             "characterName": "Jasper",
@@ -317,7 +345,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A journalist who doesn't mind publishing fake news to sell more newspapers. His latest publishing angered a retired gangster and now he wishes to escape.",
             "consequenceOfAccepting": "The Aethel's Times journal was assaulted tonight. Luckily nobody was hurt. Authorities suspect of the Peshkov Gang but the motivations are not clear.",
-            "consequenceOfRejecting": "There are rumours of corruption in the Tenebris Train Station."
+            "consequenceOfRejecting": "There are rumours of corruption in the Tenebris Train Station.",
+            "criticalSaving": true
         },
         {
             "characterName": "Anna",
@@ -328,7 +357,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A established book editor who helps publishing some dissident works. She believes that the authorities are starting to suspect her.",
             "consequenceOfAccepting": "Book editor Anna expects to increase exponentially the spreading of her published dissident works.",
-            "consequenceOfRejecting": "Tenebris' authorities have raided New Publishing. They suspect of the circulation of dissident work."
+            "consequenceOfRejecting": "Tenebris' authorities have raided New Publishing. They suspect of the circulation of dissident work.",
+            "criticalSaving": false
         },
         {
             "characterName": "Lew",
@@ -339,7 +369,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "As an homosexual, he is often harassed by the authorities. He wishes to flee so that he can love whoever he wants without having to hide it from everyone.",
             "consequenceOfAccepting": "The number of people escaping from Tenebris because of their sexual orientation is increasing exponentially after the announcement of the plan to illegalize homosexuality.",
-            "consequenceOfRejecting": "Government about to approve the illegalization of homosexuality."
+            "consequenceOfRejecting": "Government about to approve the illegalization of homosexuality.",
+            "criticalSaving": true
         },
         {
             "characterName": "Rebecca",
@@ -350,7 +381,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "She was married to a political police officer but has divorced him. Since then, he has been trying to get her into trouble in every way possible, making her loose her job. Since she can no longer carry a normal life in Tenebris, she wants to flee.",
             "consequenceOfAccepting": "The emotional story of Rebecca and how Tenebris authorities act without any control.",
-            "consequenceOfRejecting": "Jobless woman is arrested after trying to kill political police officer who happens to be her ex-husband."
+            "consequenceOfRejecting": "Jobless woman is arrested after trying to kill political police officer who happens to be her ex-husband.",
+            "criticalSaving": true
         },
         {
             "characterName": "Carla",
@@ -361,7 +393,8 @@
             "healthStatusDescription": "She has leg problems.",
             "description": "Head-nurse of the hospital, she always stands for what she believes is right, which sometimes gets her in trouble. She has managed to keep her job because she gathers the support of all the nurses. However, she is about to retire and she fears what might happen to her then.",
             "consequenceOfAccepting": "Former Tenebris nurse founds organization to establish cooperation protocol between hospitals in Aethel and Tenebris.",
-            "consequenceOfRejecting": "Tenebris Federal Hospital announces there will be a change in the hospital's staff structure."
+            "consequenceOfRejecting": "Tenebris Federal Hospital announces there will be a change in the hospital's staff structure.",
+            "criticalSaving": false
         },
         {
             "characterName": "Werner",
@@ -372,7 +405,8 @@
             "healthStatusDescription": "He has a paralyzed hand.",
             "description": "A businessman, he managed to keep his company in Aethel, where business is not controlled by the government and therefore makes decent money.",
             "consequenceOfAccepting": "Businessman Werner announces that no profit from his company will end up in Tenebris. This might represent a blunt for Tenebris' economy.",
-            "consequenceOfRejecting": "The Werner Company is under investigation for suspicted tax fraud."
+            "consequenceOfRejecting": "The Werner Company is under investigation for suspicted tax fraud.",
+            "criticalSaving": false
         },
         {
             "characterName": "Walli",
@@ -383,7 +417,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A talented musician whose work is constantly being censored by the authorities. He wishes to flee to somewhere where he can express himself freely and create his music.",
             "consequenceOfAccepting": "The next big music star? Walli has just arrived to Aethel but his songs are already making a huge success amongst the younger generation.",
-            "consequenceOfRejecting": "2 young musicians were arrested last night for singing revolutionary songs."
+            "consequenceOfRejecting": "2 young musicians were arrested last night for singing revolutionary songs.",
+            "criticalSaving": false
         },
         {
             "characterName": "Odo",
@@ -394,7 +429,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A clergyman who organizes clandestine gatherings to discuss everything from arts to freedom.",
             "consequenceOfAccepting": "Authorities performed raids in one of the most important churches in Tenebris for suspicions of rebel activity in its basement. No rebels were found but the authorities keep investigating.",
-            "consequenceOfRejecting": "Authorities performed raids in one of the most important churches in Tenebris for suspicions of rebel activity in its basement. All the suspects escaped but the authorities keep investigating."
+            "consequenceOfRejecting": "Authorities performed raids in one of the most important churches in Tenebris for suspicions of rebel activity in its basement. All the suspects escaped but the authorities keep investigating.",
+            "criticalSaving": true
         },
         {
             "characterName": "Tanya",
@@ -405,7 +441,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "A journalist who is appreciated by the government since her work always represents the better side of life in Tenebris. However, she has been secretly giving dissident literary work to the New Publishing company.",
             "consequenceOfAccepting": "\"There are so many great writers who are against the regime. They just need an opportunity to tell their truth.\", says Tanya, who escaped from Tenebris this week.",
-            "consequenceOfRejecting": "Tenebris' authorities have raided New Publishing. They suspect of the circulation of dissident work."
+            "consequenceOfRejecting": "Tenebris' authorities have raided New Publishing. They suspect of the circulation of dissident work.",
+            "criticalSaving": true
         },
         {
             "characterName": "Dimka",
@@ -416,7 +453,8 @@
             "healthStatusDescription": "Healthy.",
             "description": "Tanya's twin and a member of the government, Dimka has always believed that despite ruthless, the Tenebris government only needed to be improved. But now it's his sister who is in danger and his perspective has changed. With privileged information, Dimka intends to expose the Tenebris government so that everyone knows what is happening.",
             "consequenceOfAccepting": "Aethel's Parliament has announced a public hearing for Dimka, the Tenebris exiled. As a former member of the government, he has \"revelations to make that might shock many people\", says the Parliament speaker who has already listened to Dimka.",
-            "consequenceOfRejecting": "\"Everyone needs to obey the law... even politicians.\", the mysterious words from the Tenebris Intelligence Agency (TIA) chief."
+            "consequenceOfRejecting": "\"Everyone needs to obey the law... even politicians.\", the mysterious words from the Tenebris Intelligence Agency (TIA) chief.",
+            "criticalSaving": true
         }
     ]
 }

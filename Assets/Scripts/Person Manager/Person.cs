@@ -19,6 +19,8 @@ public class Person : MonoBehaviour
     public string consequenceOfAccepting { get; set; }
     public string consequenceOfRejecting { get; set; }
 
+    public bool criticalSaving { get; set; }
+
     public const string DialoguePath = "Dialogues/";
 
     public PersonData personData { get; set; }
