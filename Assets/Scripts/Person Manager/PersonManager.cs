@@ -111,7 +111,10 @@ public class PersonManager : MonoBehaviour
     {
         if (GameManager.Instance.seatsAvailableCounter <= 0)
             return;
-        
+
+
+        LogManager.Instance.AddToLine(_currentCharacter.characterName + " was accepted after " + TimeManager.Instance.CurrentTime() + " seconds. There were " + GameManager.Instance.seatsAvailableCounter + " seats left.");
+
         GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel, dailyCharacters[0].criticalSaving);
 
         _peopleData.people = ChoosePerson(_peopleData.people, _currentCharacter.personData);
@@ -147,7 +150,11 @@ public class PersonManager : MonoBehaviour
     public void RejectClicked()
     {
         Debug.Log("You rejected " + _currentCharacter.characterName);
-        if(!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))   //if not seen yet
+        
+        LogManager.Instance.AddToLine(_currentCharacter.characterName + " was rejected after " + TimeManager.Instance.CurrentTime() + " seconds. There were " + GameManager.Instance.seatsAvailableCounter + " seats left.");
+        LogManager.Instance.WriteOut();
+
+        if (!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))   //if not seen yet
         {
             (string, string) newConsequence = (_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting);
             consequences.Add(newConsequence);
@@ -208,6 +215,10 @@ public class PersonManager : MonoBehaviour
     {
         dailyCharacters = ShowUpCharacters(_peopleData.people);
         _personsRemainingCounter = peoplePerDay;
+
+        LogManager.Instance.AddToLine("New Day.");
+        LogManager.Instance.WriteOut();        
+
         NewCharacter();
     }
 

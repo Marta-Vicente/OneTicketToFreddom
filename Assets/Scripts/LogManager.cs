@@ -22,7 +22,7 @@ public class LogManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
-            fileName = Application.dataPath + "Logger.txt";
+            fileName = Application.persistentDataPath + "\\Logger.txt";
             CreateFile();
         }
     }
@@ -53,13 +53,14 @@ public class LogManager : MonoBehaviour
 
     public void AddToLine(string toAdd)
     {
-        nextLine += " " + toAdd;
+        nextLine += toAdd + " ";
     }
 
     public void WriteOut()
     {
         StreamWriter sr = new StreamWriter(fileName, true);
-        sr.WriteLine(nextLine);
+        sr.WriteLine("Seconds since startup " + (int)Time.realtimeSinceStartup + ": " + nextLine);
         nextLine = "";
+        sr.Close();
     }
 }

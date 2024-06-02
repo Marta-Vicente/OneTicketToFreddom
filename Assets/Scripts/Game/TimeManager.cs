@@ -82,4 +82,9 @@ public class TimeManager : MonoBehaviour
         
         return state;
     }
+
+    public float CurrentTime()
+    {
+        return _timeSpent;
+    }
 }

@@ -88,6 +88,9 @@ public class GameManager : MonoBehaviour
         else if (suspicion >= 100)
         {
             Console.WriteLine("You have been caught, game over");
+            LogManager.Instance.AddToLine("Game over after " + _peopleSaved + " people saved, of which " + highPrioSaved + " were high priority.");
+            LogManager.Instance.WriteOut();
+
             SceneManager.LoadScene("GameOver");
             return;
         }
@@ -100,6 +103,9 @@ public class GameManager : MonoBehaviour
         highPrioBuffer = 0;
         suspicion_gain = 0;
         PersonManager.Instance.peoplePerDay = 3;
+
+        LogManager.Instance.AddToLine("Week " + _weekCounter + " suspicion is " + suspicion + ".");
+        LogManager.Instance.WriteOut();
 
         if (_weekCounter >= 1)
         {
@@ -126,6 +132,9 @@ public class GameManager : MonoBehaviour
         {
             suspicion_gain += (threatLevel - 1) * 2.5f * suspicionMultiplier;
         }
+
+        LogManager.Instance.AddToLine("Character will add " + suspicion_gain + " to suspicion.");
+        LogManager.Instance.WriteOut();
 
         UIManager.Instance.acceptButton.gameObject.SetActive(seatsAvailableCounter > 0);
     }
