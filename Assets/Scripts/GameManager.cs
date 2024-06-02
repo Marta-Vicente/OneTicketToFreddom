@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
 
             transitionScreen.SetActive(true);
             newsAnimation.SetActive(true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1.5f);
             NewWeek();
             newsAnimation.SetActive(false);
             transitionScreen.SetActive(false);
