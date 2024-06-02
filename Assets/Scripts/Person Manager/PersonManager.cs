@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 
 //************************************************JSON************************************************
@@ -204,6 +205,17 @@ public class PersonManager : MonoBehaviour
         dailyCharacters = ShowUpCharacters(_peopleData.people);
         _personsRemainingCounter = peoplePerDay;
         NewCharacter();
+    }
+
+    public void AlterPeopleAmount(int change)
+    {
+        if (-change >= peoplePerDay)
+        {
+            peoplePerDay = 0;
+            return;
+        }
+
+        peoplePerDay += change;
     }
 
     //Remove person from character's list, once the person is accepted

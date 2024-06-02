@@ -121,7 +121,8 @@ public class GameManager : MonoBehaviour
         _peopleSaved = 0;
         highPrioBuffer = 0;
         suspicion_gain = 0;
-        
+        PersonManager.Instance.peoplePerDay = 3;
+
         if (_weekCounter >= 1)
         {
             UIManager.Instance.ShowConsequences(PersonManager.Instance.consequences);
