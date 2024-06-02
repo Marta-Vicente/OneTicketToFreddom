@@ -11,6 +11,8 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject newsAnimation;
+    public GameObject transitionScreen;
 
     void Awake()
     {
@@ -198,9 +200,16 @@ public class GameManager : MonoBehaviour
         IEnumerator Delay()
         {
             yield return new WaitForSeconds(3f);
-            screen.SetActive(false);
             seatsAvailableCounter = seatsAvailablePerWeek;
+            screen.SetActive(false);
+
+            transitionScreen.SetActive(true);
+            newsAnimation.SetActive(true);
+            yield return new WaitForSeconds(3f);
             NewWeek();
+            newsAnimation.SetActive(false);
+            transitionScreen.SetActive(false);
+
         }
 
         StartCoroutine(Delay());
