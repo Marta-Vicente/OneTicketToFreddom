@@ -37,9 +37,9 @@ public class DialogueManager : MonoBehaviour
     public bool makingChoices {get; private set;}
 
 
-    [FormerlySerializedAs("dialogueTime")] public float dialogueLength = 0;
+    public float dialogueLength = 0;
         
-    [FormerlySerializedAs("currentTag")] public string currentTag = "";
+    public string currentTag = "";
     public int narrativeTags = 0;
 
     //NEW
@@ -73,6 +73,8 @@ public class DialogueManager : MonoBehaviour
         if (dialogueIsPlaying && Input.GetMouseButtonDown(0) && !makingChoices)
         {
             ContinueStory();
+            AudioManager.instance.Stop("Type1");
+            AudioManager.instance.Stop("Type2");
         }
     }
     public void EnterDialogueMode(TextAsset inkJSON)
@@ -153,6 +155,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void MakeChoice(int choiceIndex){
+        AudioManager.instance.Play("Action Button");
         Debug.Log("Make Choice");
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
@@ -165,10 +168,12 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach (var letter in sentence.ToCharArray())
         {
+            var rng = Random.Range(0f, 1f);
+            AudioManager.instance.Play(rng > 0.5 ? "Type1" : "Type2");
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.025f);
         }
-
+        AudioManager.instance.Play("Bell");
         yield return new WaitForSeconds(1);
     }
 
