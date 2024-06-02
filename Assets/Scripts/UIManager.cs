@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
     public GameObject nextDayScreen, endOfWeekScreen;
     public Button acceptButton, rejectButton;
     
+    [Header("Suspicion Eye")]
+    public Animator eye;
+    
     [Header("Weakly Events")]
     public GameObject eventScreen;
     public TextMeshProUGUI eventName;
@@ -95,5 +98,10 @@ public class UIManager : MonoBehaviour
             var con = consequencesScreen.transform.GetChild(i);
             Destroy(con.gameObject);
         }
+    }
+
+    public void ChangeEyeState()
+    {
+        eye.SetTrigger("CloseEye");
     }
 }

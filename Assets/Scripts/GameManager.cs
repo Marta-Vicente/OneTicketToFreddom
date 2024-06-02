@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
 
     private float suspicion = 0;
     [HideInInspector] public float susModifier = 1;
-    private float timeSpent = 0;
 
     // Highscores
     public int numberSaved = 0;
@@ -56,35 +55,10 @@ public class GameManager : MonoBehaviour
     {
         seatsAvailableCounter = seatsAvailablePerWeek;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        timeSpent += Time.deltaTime;
-    }
-
-    // Returns if it belongs to the first, second or third state of suspicion based in timer
-    public int TimerState() {
-        int state = 1;
-
-        if (timeSpent >= 10)
-        {
-            state = 3;
-        }
-        else if (timeSpent >= 5)
-        {
-            state = 2;
-        }
-        Debug.Log("State is " + state);
-        return state;
-    }
-    public void ResetTimer()
-    {
-        timeSpent = 0;
-    }
+    
     private float StateSuspicionMultiplier()
     {
-        int state = TimerState();
+        int state = TimeManager.Instance.timerState;
 
         // suspicion multi will be 0.75, 1 or 1.25 for each respective state 1, 2 or 3
         float suspicionMulti = 0.25f * (state - 2) + 1;
