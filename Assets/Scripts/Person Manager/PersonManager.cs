@@ -80,14 +80,14 @@ public class PersonManager : MonoBehaviour
         GameManager.Instance.NewWeek();
     }
 
-    public void ChangeImageStatus(bool status,Person p)
+    private void ChangeImageStatus(bool status,Person p)
     {
-        for (int i = 0; i < charactersImageList.Count; i++)
+        foreach (var t in charactersImageList)
         {
-            if (charactersImageList[i].name == p.getName())
+            if (t.name == p.getName())
             {
-                charactersImageList[i].gameObject.SetActive(status);
-
+                t.gameObject.SetActive(status);
+                return;
             }
         }
     }
@@ -131,14 +131,16 @@ public class PersonManager : MonoBehaviour
 
         dailyCharacters.RemoveAt(0);
         
+        
+        _personsRemainingCounter--;
+        ChangeImageStatus(false, _currentCharacter);
+        
         if (dailyCharacters.Count == 0)
         {
             GameManager.Instance.NextDay();
             return;
         }
         
-        _personsRemainingCounter--;
-        ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
     }
 
@@ -152,14 +154,15 @@ public class PersonManager : MonoBehaviour
         }
         dailyCharacters.RemoveAt(0);
         
+        _personsRemainingCounter--;
+        ChangeImageStatus(false, _currentCharacter);
+        
         if (dailyCharacters.Count == 0)
         {
             GameManager.Instance.NextDay();
             return;
         }
         
-        _personsRemainingCounter--;
-        ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
     }
 
