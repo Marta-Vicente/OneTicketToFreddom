@@ -22,7 +22,7 @@ public class WeeklyEventManager : MonoBehaviour
 
     public void SelectRandomEvent()
     {
-        var rng = Random.Range(0, 4);
+        var rng = Random.Range(0, 6);
         
         switch (rng)
         {
@@ -37,6 +37,12 @@ public class WeeklyEventManager : MonoBehaviour
                 break;
             case 3:
                 StateHoliday();
+                break;
+            case 4:
+                RoadsConstruction();
+                break;
+            case 5:
+                IncreasedInstability();
                 break;
         }
     }
@@ -70,6 +76,22 @@ public class WeeklyEventManager : MonoBehaviour
         CurrentGamplayEvent = ("State Holiday",
             "This week is a state holiday. Policemen are nowhere to be seen. <br>Effect:<br>No suspicion will be accumulated this week");
         GameManager.Instance.SetSusModifier(0);
+        UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
+    }
+
+    private void RoadsConstruction()
+    {
+        CurrentGamplayEvent = ("Roads Under Construction",
+            "Roads connecting to the station are under construction. Fewer people will arrive at the station. <br>Effect:<br>Number of people per day reduced by 1");
+        PersonManager.Instance.AlterPeopleAmount(-1);
+        UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
+    }
+
+    private void IncreasedInstability()
+    {
+        CurrentGamplayEvent = ("Instability on the Rise!",
+            "Instability is rising throughout Tenebris. The desire to depart to Aethel has never been higher. <br>Effect:<br>Number of people per day increased by 2");
+        PersonManager.Instance.AlterPeopleAmount(2);
         UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
     }
 }

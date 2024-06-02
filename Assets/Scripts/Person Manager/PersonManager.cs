@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 
 //************************************************JSON************************************************
@@ -50,8 +51,7 @@ public class PersonManager : MonoBehaviour
         }
     }
     public List<Image> charactersImageList = new List<Image>();
-
-    [SerializeField] private Button acceptButton, rejectButton;
+    
     [SerializeField] private TextMeshProUGUI ticketCounter, personsRemainingText;
     private int _personsRemainingCounter;
 
@@ -64,8 +64,6 @@ public class PersonManager : MonoBehaviour
     private Person _currentCharacter;
 
     //KEYS
-    private bool _accepted = false;
-    private bool _rejected = false;
     private List<Person> dailyCharacters;
     public List<(string, string)> consequences;  //list where the correct consequences are stored for each character we face
 
@@ -94,7 +92,7 @@ public class PersonManager : MonoBehaviour
         }
     }
 
-    /*public void NewCharacter()
+    public void NewCharacter()
     {
         if (dailyCharacters.Count > 0)
         {
@@ -106,49 +104,6 @@ public class PersonManager : MonoBehaviour
         }
 
         ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
-    }*/
-
-    public void NewCharacter() //BEA new function
-    {
-
-        personsRemainingText.text = "Remaining number of people to check : " + _personsRemainingCounter;
-
-        if (GameManager.Instance.seatsAvailableCounter != 0 && dailyCharacters.Count > 0)
-        {
-            _currentCharacter = dailyCharacters[0];
-            ChangeImageStatus(true, _currentCharacter);
-            _currentCharacter.Speak();
-
-        }
-
-        //show remaining people even without available seats
-        if (GameManager.Instance.seatsAvailableCounter == 0 && dailyCharacters.Count >= 0)
-        {
-            //remove buttons
-            acceptButton.gameObject.SetActive(false);
-            rejectButton.gameObject.SetActive(false);
-            _currentCharacter = dailyCharacters[0];
-            //show following character
-            ChangeImageStatus(true, _currentCharacter);
-            StartCoroutine(Delay(_currentCharacter));
-
-        }
-
-        ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
-
-        GameManager.Instance.ResetTimer();
-
-    }
-
-    private IEnumerator Delay(Person p)
-    {
-
-        yield return new WaitForSeconds(5f);
-        ChangeImageStatus(false, p);
-        acceptButton.gameObject.SetActive(true);
-        rejectButton.gameObject.SetActive(true);
-        GameManager.Instance.NextDay();
-
     }
 
     public void AcceptClicked()
@@ -156,7 +111,6 @@ public class PersonManager : MonoBehaviour
         if (GameManager.Instance.seatsAvailableCounter <= 0)
             return;
         
-        _accepted = true;
         GameManager.Instance.BoardPerson(dailyCharacters[0].threatLevel, dailyCharacters[0].criticalSaving);
 
         _peopleData.people = ChoosePerson(_peopleData.people, _currentCharacter.personData);
@@ -182,17 +136,13 @@ public class PersonManager : MonoBehaviour
             return;
         }
         
-        
-        _accepted = false;
         _personsRemainingCounter--;
         ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
-        acceptButton.interactable = GameManager.Instance.seatsAvailablePerWeek > 0;
     }
 
     public void RejectClicked()
     {
-        _rejected = true;
         Debug.Log("You rejected " + _currentCharacter.characterName);
         if(!consequences.Contains((_currentCharacter.characterName, _currentCharacter.consequenceOfRejecting)))   //if not seen yet
         {
@@ -207,7 +157,6 @@ public class PersonManager : MonoBehaviour
             return;
         }
         
-        _rejected = false;
         _personsRemainingCounter--;
         ChangeImageStatus(false, _currentCharacter);
         NewCharacter();
@@ -256,6 +205,17 @@ public class PersonManager : MonoBehaviour
         dailyCharacters = ShowUpCharacters(_peopleData.people);
         _personsRemainingCounter = peoplePerDay;
         NewCharacter();
+    }
+
+    public void AlterPeopleAmount(int change)
+    {
+        if (-change >= peoplePerDay)
+        {
+            peoplePerDay = 0;
+            return;
+        }
+
+        peoplePerDay += change;
     }
 
     //Remove person from character's list, once the person is accepted

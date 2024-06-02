@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject nextDayScreen, endOfWeekScreen;
+    public Button acceptButton, rejectButton;
     
     [Header("Weakly Events")]
     public GameObject eventScreen;

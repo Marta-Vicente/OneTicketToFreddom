@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     // How much suspicion is gained at the end of the week
     private float suspicion_gain = 0;
 
-    private int people = 0;
+    private int _peopleSaved = 0;
     [HideInInspector] public int seatsAvailableCounter;
 
     private int _weekCounter = 0;
@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         seatsAvailableCounter = seatsAvailablePerWeek;
-        people = PersonManager.Instance.peoplePerDay;
     }
 
     // Update is called once per frame
@@ -118,27 +117,26 @@ public class GameManager : MonoBehaviour
         }
 
         highPrioSaved += highPrioBuffer;
-        numberSaved += people;
+        numberSaved += _peopleSaved;
 
         _suspicionBar.SetSuspicion(suspicion);
-        people = 0;
+        _peopleSaved = 0;
         highPrioBuffer = 0;
         suspicion_gain = 0;
-        Console.WriteLine(_weekCounter);
+        PersonManager.Instance.peoplePerDay = 3;
+
+        if (_weekCounter >= 1)
+        {
+            UIManager.Instance.ShowConsequences(PersonManager.Instance.consequences);
+        }
     }
 
     public void BoardPerson(int threatLevel, bool highPrio)
     {
-        if (people == seatsAvailableCounter)
-        {
-            Console.WriteLine("Boarding limit exceeded");
-            return;
-        }
-
         float suspicionMultiplier = StateSuspicionMultiplier();
 
         seatsAvailableCounter--;
-        people++;
+        _peopleSaved++;
         if (highPrio) {
             highPrioBuffer++;
         }
@@ -153,7 +151,7 @@ public class GameManager : MonoBehaviour
             suspicion_gain += (threatLevel - 1) * 2.5f * suspicionMultiplier;
         }
 
-
+        UIManager.Instance.acceptButton.gameObject.SetActive(seatsAvailableCounter > 0);
     }
 
     // Changes the amount of seats by change amount
@@ -176,10 +174,6 @@ public class GameManager : MonoBehaviour
 
     public void NewWeek()
     {
-        if (_weekCounter >= 1)
-        {
-            UIManager.Instance.ShowConsequences(PersonManager.Instance.consequences);
-        }
         WeekForwarder();
         var pm = PersonManager.Instance;
         pm.consequences = new List<(string, string)>(); //restart list after end of the week
@@ -190,6 +184,7 @@ public class GameManager : MonoBehaviour
         {
             pm.NewDay();
         }
+        UIManager.Instance.acceptButton.gameObject.SetActive(true);
     }
 
     public void EndWeek()

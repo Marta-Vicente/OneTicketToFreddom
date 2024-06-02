@@ -2433,8 +2433,6 @@ MonoBehaviour:
   - {fileID: 1207496070}
   - {fileID: 1872834137}
   - {fileID: 1524348274}
-  acceptButton: {fileID: 1429031890}
-  rejectButton: {fileID: 2086479463}
   ticketCounter: {fileID: 109156290}
   personsRemainingText: {fileID: 1884879048}
   personPrefab: {fileID: 1934732738}
@@ -4714,6 +4712,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextDayScreen: {fileID: 1864174965}
   endOfWeekScreen: {fileID: 309615974}
+  acceptButton: {fileID: 1429031890}
+  rejectButton: {fileID: 2086479463}
   eventScreen: {fileID: 2035699931}
   eventName: {fileID: 1843577039}
   eventDescription: {fileID: 258385070}
