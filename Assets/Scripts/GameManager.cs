@@ -46,9 +46,9 @@ public class GameManager : MonoBehaviour
     private float timeSpent = 0;
 
     // Highscores
-    int numberSaved = 0;
-    int highPrioSaved = 0;
-    int highPrioBuffer = 0;
+    public int numberSaved = 0;
+    public int highPrioSaved = 0;
+    private int highPrioBuffer = 0;
 
     void Start()
     {

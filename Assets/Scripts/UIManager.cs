@@ -57,10 +57,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowConsequences(List<(string, string)> consequences)
     {
+        var con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
+        var text = con.GetComponent<TextMeshProUGUI>();
+        text.text = "People saved: " + GameManager.Instance.numberSaved + "\n High-priority people saved: " + GameManager.Instance.highPrioSaved;
+
         foreach (var consequence in consequences)
         {
-            var con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
-            var text = con.GetComponent<TextMeshProUGUI>();
+            con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
+            text = con.GetComponent<TextMeshProUGUI>();
             text.text = consequence.Item2;
         }
         
