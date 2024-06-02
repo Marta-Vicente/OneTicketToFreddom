@@ -5,6 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
         else if (suspicion >= 100)
         {
             Console.WriteLine("You have been caught, game over");
+            SceneManager.LoadScene("GameOver");
             return;
         }
 
