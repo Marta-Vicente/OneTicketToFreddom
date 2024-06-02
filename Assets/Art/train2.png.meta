@@ -115,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,9 +134,9 @@ TextureImporter:
       name: train2_1
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1023
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -155,9 +155,9 @@ TextureImporter:
       name: train2_2
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 2046
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -176,9 +176,9 @@ TextureImporter:
       name: train2_3
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 3069
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -197,9 +197,9 @@ TextureImporter:
       name: train2_4
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 4092
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,9 +218,9 @@ TextureImporter:
       name: train2_5
       rect:
         serializedVersion: 2
-        x: 5120
+        x: 5115
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -239,9 +239,9 @@ TextureImporter:
       name: train2_6
       rect:
         serializedVersion: 2
-        x: 6144
+        x: 6138
         y: 1024
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -262,7 +262,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -281,9 +281,9 @@ TextureImporter:
       name: train2_8
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1023
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -302,9 +302,9 @@ TextureImporter:
       name: train2_9
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 2046
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -323,9 +323,9 @@ TextureImporter:
       name: train2_10
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 3069
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -344,9 +344,9 @@ TextureImporter:
       name: train2_11
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 4092
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -365,9 +365,9 @@ TextureImporter:
       name: train2_12
       rect:
         serializedVersion: 2
-        x: 5120
+        x: 5115
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -386,9 +386,9 @@ TextureImporter:
       name: train2_13
       rect:
         serializedVersion: 2
-        x: 6144
+        x: 6138
         y: 0
-        width: 1024
+        width: 1023
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
