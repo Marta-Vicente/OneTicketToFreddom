@@ -115,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1024
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,9 +134,9 @@ TextureImporter:
       name: newspaper_1
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1026
         y: 1024
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -155,9 +155,9 @@ TextureImporter:
       name: newspaper_2
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 2052
         y: 1024
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -176,9 +176,9 @@ TextureImporter:
       name: newspaper_3
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 3078
         y: 1024
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -197,9 +197,9 @@ TextureImporter:
       name: newspaper_4
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 4104
         y: 1024
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,9 +218,9 @@ TextureImporter:
       name: newspaper_5
       rect:
         serializedVersion: 2
-        x: 5120
+        x: 5130
         y: 1024
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -239,9 +239,9 @@ TextureImporter:
       name: newspaper_6
       rect:
         serializedVersion: 2
-        x: 6144
-        y: 1024
-        width: 1024
+        x: 0
+        y: 0
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -260,9 +260,9 @@ TextureImporter:
       name: newspaper_7
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1026
         y: 0
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -281,9 +281,9 @@ TextureImporter:
       name: newspaper_8
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 2052
         y: 0
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -302,9 +302,9 @@ TextureImporter:
       name: newspaper_9
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 3078
         y: 0
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -323,9 +323,9 @@ TextureImporter:
       name: newspaper_10
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 4104
         y: 0
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -344,9 +344,9 @@ TextureImporter:
       name: newspaper_11
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 5130
         y: 0
-        width: 1024
+        width: 1026
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -357,48 +357,6 @@ TextureImporter:
       bones: []
       spriteID: 21ed0f614491444b0b023075a7a25df6
       internalID: -1378257580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: newspaper_12
-      rect:
-        serializedVersion: 2
-        x: 5120
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7c527ab3a3534f1e946e551628ff866
-      internalID: 527314704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: newspaper_13
-      rect:
-        serializedVersion: 2
-        x: 6144
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 720649c3f2aac40ad8f56d2740fab7a0
-      internalID: -2115279439
       vertices: []
       indices: 
       edges: []
@@ -418,8 +376,6 @@ TextureImporter:
       newspaper_1: -365289688
       newspaper_10: -1502671264
       newspaper_11: -1378257580
-      newspaper_12: 527314704
-      newspaper_13: -2115279439
       newspaper_2: 1817562983
       newspaper_3: -2005660024
       newspaper_4: 1773937804
