@@ -17,7 +17,7 @@ VAR medicalCertificate = false
 == Questions ==
     *[State your name and age.]
         -> nameAnswer
-    * {followUpQuestion} [Madam, I have to ask everyone these questions. What is your name and age?]
+    * {followUpQuestion} [Madam, I have to ask everyone these questions. Name and age?]
         -> followUpAnswer
     * {followUpQuestion2} [What is your age...?]
         -> followUpAnswer2

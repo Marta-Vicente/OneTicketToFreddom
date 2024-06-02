@@ -59,16 +59,27 @@ public class UIManager : MonoBehaviour
 
     public void ShowConsequences(List<(string, string)> consequences)
     {
+        int shownConsequences = 4;
+        int randConsequenceIndex;
+
         var con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
         var text = con.GetComponent<TextMeshProUGUI>();
         text.text = "People saved: " + GameManager.Instance.numberSaved + "\n High-priority people saved: " + GameManager.Instance.highPrioSaved;
 
-        foreach (var consequence in consequences)
+        for(int i=0; i<shownConsequences; i++)
         {
+            randConsequenceIndex = UnityEngine.Random.Range(0, consequences.Count - 1);
+            var consequence = consequences[randConsequenceIndex];
             con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
             text = con.GetComponent<TextMeshProUGUI>();
             text.text = consequence.Item2;
         }
+        /*foreach (var consequence in consequences)
+        {
+            con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
+            text = con.GetComponent<TextMeshProUGUI>();
+            text.text = consequence.Item2;
+        }*/
         
         Canvas.ForceUpdateCanvases();
         consequencesScreen.SetActive(true);

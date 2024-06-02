@@ -10,12 +10,8 @@ VAR followUpQuestion = false
 VAR medicalCertificate = false
 
 #Passanger
-{greeting}.
--> Intro
-
-==Intro==
 Help me, I need to get out of here!
-* [Next] -> Questions
+-> Questions
     
 == Questions ==
     *[State your name and age.]
