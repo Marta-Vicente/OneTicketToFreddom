@@ -108,7 +108,7 @@ public class PersonManager : MonoBehaviour
         ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
     }*/
 
-    public void NewCharacter() //BEA
+    public void NewCharacter() //BEA new function
     {
 
         personsRemainingText.text = "Remaining number of people to check : " + _personsRemainingCounter;
