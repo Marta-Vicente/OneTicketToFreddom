@@ -12,7 +12,7 @@ VAR medicalCertificate = false
 #Passanger
 {greeting}.
 Help me, I need to get out of here!
--> Questions
+* [Next] -> Questions
     
 == Questions ==
     *[State your name and age.]

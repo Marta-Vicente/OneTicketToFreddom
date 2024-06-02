@@ -51,8 +51,8 @@ public class WeeklyEventManager : MonoBehaviour
     
     private void GenorousBenefactor()
     {
-        CurrentGamplayEvent = ("Genorous Benefactor",
-            "A genorous benefactor wants to help the cause. They have decided to donate a carriage to help with the effort.<br>Effect:<br>Available seats increase by +1");
+        CurrentGamplayEvent = ("Generous Benefactor",
+            "A generous benefactor wants to help the cause. They have decided to donate a carriage to help with the effort.<br>Effect:<br>Available seats increase by +1");
         GameManager.Instance.AlterSeatsAmount(1);
         UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
     }
@@ -68,7 +68,7 @@ public class WeeklyEventManager : MonoBehaviour
     private void StateHoliday()
     {
         CurrentGamplayEvent = ("State Holiday",
-            "This week is a state holiday. Policemen are nowhere to be seen. <br>Effect:<br>No suspicion will be accrued this week");
+            "This week is a state holiday. Policemen are nowhere to be seen. <br>Effect:<br>No suspicion will be accumulated this week");
         GameManager.Instance.SetSusModifier(0);
         UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
     }
