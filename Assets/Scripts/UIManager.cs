@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
 
         var con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
         var text = con.GetComponent<TextMeshProUGUI>();
-        text.text = "People saved: " + GameManager.Instance.numberSaved + "\n High-priority people saved: " + GameManager.Instance.highPrioSaved;
+        text.text = "<font=\"ThaleahFat_TTF SDF\"><mark=#000000>People saved: " + GameManager.Instance.numberSaved + "\n High-priority people saved: " + GameManager.Instance.highPrioSaved;
 
         for(int i=0; i<shownConsequences; i++)
         {
@@ -75,7 +75,8 @@ public class UIManager : MonoBehaviour
             var consequence = consequences[randConsequenceIndex];
             con = Instantiate(consequencesTextPrefab, consequencesScreen.transform);
             text = con.GetComponent<TextMeshProUGUI>();
-            text.text = consequence.Item2;
+            text.text = "<font=\"ThaleahFat_TTF SDF\"><mark=#000000>";
+            text.text += consequence.Item2;
         }
         /*foreach (var consequence in consequences)
         {
