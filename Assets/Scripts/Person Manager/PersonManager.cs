@@ -94,9 +94,9 @@ public class PersonManager : MonoBehaviour
         }
     }
 
-    public void NewCharacter()
+    /*public void NewCharacter()
     {
-        if(dailyCharacters.Count > 0)
+        if (dailyCharacters.Count > 0)
         {
             _currentCharacter = dailyCharacters[0];
             ChangeImageStatus(true, _currentCharacter);
@@ -106,8 +106,51 @@ public class PersonManager : MonoBehaviour
         }
 
         ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
+    }*/
+
+    public void NewCharacter() //BEA
+    {
+
+        personsRemainingText.text = "Remaining number of people to check : " + _personsRemainingCounter;
+
+        if (GameManager.Instance.seatsAvailableCounter != 0 && dailyCharacters.Count > 0)
+        {
+            _currentCharacter = dailyCharacters[0];
+            ChangeImageStatus(true, _currentCharacter);
+            _currentCharacter.Speak();
+
+        }
+
+        //show remaining people even without available seats
+        if (GameManager.Instance.seatsAvailableCounter == 0 && dailyCharacters.Count >= 0)
+        {
+            //remove buttons
+            acceptButton.gameObject.SetActive(false);
+            rejectButton.gameObject.SetActive(false);
+            _currentCharacter = dailyCharacters[0];
+            //show following character
+            ChangeImageStatus(true, _currentCharacter);
+            StartCoroutine(Delay(_currentCharacter));
+
+        }
+
+        ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
+
+        GameManager.Instance.ResetTimer();
+
     }
-    
+
+    private IEnumerator Delay(Person p)
+    {
+
+        yield return new WaitForSeconds(5f);
+        ChangeImageStatus(false, p);
+        acceptButton.gameObject.SetActive(true);
+        rejectButton.gameObject.SetActive(true);
+        GameManager.Instance.NextDay();
+
+    }
+
     public void AcceptClicked()
     {
         if (GameManager.Instance.seatsAvailableCounter <= 0)
