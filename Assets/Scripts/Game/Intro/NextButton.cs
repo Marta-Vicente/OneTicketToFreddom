@@ -11,6 +11,7 @@ public class NextButton : MonoBehaviour
     public Text sentence3;
     public Text sentence4;
     public Text sentence5;
+    public Text sentence6;
 
     private int count;
     // Start is called before the first frame update
@@ -52,6 +53,11 @@ public class NextButton : MonoBehaviour
                 Debug.Log(count.ToString());
                 break;
             case 5:
+                original.text = sentence6.text;
+                count++;
+                Debug.Log(count.ToString());
+                break;
+            case 6:
                 SceneManager.LoadScene(1);
                 break;
             default:
