@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
             Console.WriteLine("You have been caught, game over");
             LogManager.Instance.AddToLine("Game over after " + _peopleSaved + " people saved, of which " + highPrioSaved + " were high priority.");
             LogManager.Instance.WriteOut();
-            PlayerPrefs.SetInt("PeopleSave", _peopleSaved);
+            PlayerPrefs.SetInt("PeopleSave", numberSaved);
             PlayerPrefs.SetInt("HighPrioSave", highPrioSaved);
             SceneManager.LoadScene("GameOver");
         }
