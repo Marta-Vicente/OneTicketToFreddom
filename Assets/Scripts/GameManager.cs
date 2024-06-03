@@ -18,15 +18,16 @@ public class GameManager : MonoBehaviour
     {
         // If there is an instance, and it's not me, delete myself.
         if (Instance != null && Instance != this)
+        {
             Destroy(this);
+        }
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
         }
     }
 
-    [Header("Game")] 
+    [Header("Game")]
     public int numberOfDayPerWeek = 3;
     public int seatsAvailablePerWeek;
 
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int seatsAvailableCounter;
 
     private int _weekCounter = 0;
-    private int _dayCounter;
+    [HideInInspector] public int _dayCounter;
 
     private float suspicion = 0;
     [HideInInspector] public float susModifier = 1;
@@ -83,15 +84,6 @@ public class GameManager : MonoBehaviour
         if (suspicion < 0)
         {
             suspicion = 0;
-        }
-        else if (suspicion >= 100)
-        {
-            Console.WriteLine("You have been caught, game over");
-            LogManager.Instance.AddToLine("Game over after " + _peopleSaved + " people saved, of which " + highPrioSaved + " were high priority.");
-            LogManager.Instance.WriteOut();
-
-            SceneManager.LoadScene("GameOver");
-            return;
         }
 
         highPrioSaved += highPrioBuffer;
@@ -216,7 +208,20 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Delay());
     }
 
-    public void SetSusModifier(int newMod) { 
+    public void SetSusModifier(float newMod) { 
         susModifier = newMod;
+    }
+
+    public void GameOverCheck()
+    {
+        if (suspicion >= 100)
+        {
+            Console.WriteLine("You have been caught, game over");
+            LogManager.Instance.AddToLine("Game over after " + _peopleSaved + " people saved, of which " + highPrioSaved + " were high priority.");
+            LogManager.Instance.WriteOut();
+            PlayerPrefs.SetInt("PeopleSave", _peopleSaved);
+            PlayerPrefs.SetInt("HighPrioSave", highPrioSaved);
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
