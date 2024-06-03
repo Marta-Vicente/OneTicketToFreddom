@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            suspicion_gain += (threatLevel - 1) * 2.5f * suspicionMultiplier;
+            suspicion_gain += (threatLevel - 1) * 3.0f * suspicionMultiplier;
         }
 
         LogManager.Instance.AddToLine("Character will add " + suspicion_gain + " to suspicion.");

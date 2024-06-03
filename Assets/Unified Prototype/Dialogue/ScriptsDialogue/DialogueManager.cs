@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (dialogueIsPlaying && Input.GetMouseButtonDown(0) && !makingChoices)
+        if (dialogueIsPlaying && Input.GetButtonDown("Jump") && !makingChoices)
         {
             ContinueStory();
             AudioManager.instance.Stop("Type1");
@@ -137,6 +137,7 @@ public class DialogueManager : MonoBehaviour
         var index = 0;
         foreach(var choice in currentChoices){
             makingChoices = true;
+            Debug.Log("here");
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
@@ -159,7 +160,6 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Make Choice");
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
-        makingChoices = false;
     }
 
     private IEnumerator TypeSentence (string sentence)
