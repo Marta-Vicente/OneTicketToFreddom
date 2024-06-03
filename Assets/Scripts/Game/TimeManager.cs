@@ -67,10 +67,10 @@ public class TimeManager : MonoBehaviour
 
         switch (timeSpent)
         {
-            case >= 10:
+            case >= 25:
                 state = 3;
                 break;
-            case >= 5:
+            case >= 15:
                 state = 2;
                 break;
         }

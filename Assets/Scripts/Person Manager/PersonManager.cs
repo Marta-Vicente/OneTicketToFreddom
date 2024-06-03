@@ -56,7 +56,7 @@ public class PersonManager : MonoBehaviour
     private int _personsRemainingCounter;
 
     public GameObject personPrefab;     //person template
-    public string peopleJsonFileName = "people.json";       //JSON with characters' info
+    public string peopleJsonFileName = "people";       //JSON with characters' info
     public int peoplePerDay;       //number of people who show up in one day
     private PeopleArray _peopleData;                         //characters' info read from JSON
 
@@ -70,11 +70,11 @@ public class PersonManager : MonoBehaviour
     void Start()
     {
         // Read the JSON file
-        string filePath = Path.Combine(Application.dataPath + "/Scripts/Person Manager/", peopleJsonFileName);
-        string jsonContent = File.ReadAllText(filePath);
+        //string filePath = Path.Combine(Application.dataPath + "/Scripts/Person Manager/", peopleJsonFileName);
+        var jsonContent = Resources.Load<TextAsset>("People/" + peopleJsonFileName);
 
         // Parse the JSON data
-        _peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent);
+        _peopleData = JsonUtility.FromJson<PeopleArray>(jsonContent.text);
 
         _personsRemainingCounter = peoplePerDay;
         GameManager.Instance.NewWeek();

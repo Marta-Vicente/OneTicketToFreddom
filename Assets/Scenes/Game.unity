@@ -1569,7 +1569,7 @@ MonoBehaviour:
   newsAnimation: {fileID: 1558848401}
   transitionScreen: {fileID: 723691784}
   numberOfDayPerWeek: 3
-  seatsAvailablePerWeek: 2
+  seatsAvailablePerWeek: 5
   sus_increase: 0.2
   _suspicionBar: {fileID: 1395141223}
   seatsAvailableCounter: 0
@@ -2722,7 +2722,7 @@ MonoBehaviour:
   ticketCounter: {fileID: 109156290}
   personsRemainingText: {fileID: 1884879048}
   personPrefab: {fileID: 1934732738}
-  peopleJsonFileName: people.json
+  peopleJsonFileName: people
   peoplePerDay: 3
 --- !u!1001 &1334510007
 PrefabInstance:
