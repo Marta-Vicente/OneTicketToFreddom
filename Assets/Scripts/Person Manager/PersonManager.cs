@@ -184,7 +184,7 @@ public class PersonManager : MonoBehaviour
         {
             if (tempList.Count != 0)
             {
-                int randomPersonIndex = UnityEngine.Random.Range(0, tempList.Count - 1);
+                int randomPersonIndex = UnityEngine.Random.Range(0, tempList.Count);
 
                 GameObject newPerson = Instantiate(personPrefab, Vector3.zero, Quaternion.identity);
                 Person personComponent = newPerson.GetComponent<Person>();
