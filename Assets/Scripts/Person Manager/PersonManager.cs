@@ -52,7 +52,7 @@ public class PersonManager : MonoBehaviour
     }
     public List<Image> charactersImageList = new List<Image>();
     
-    [SerializeField] private TextMeshProUGUI ticketCounter, personsRemainingText;
+    [SerializeField] private TextMeshProUGUI ticketCounter, personsRemainingText, dayCounter;
     private int _personsRemainingCounter;
 
     public GameObject personPrefab;     //person template
@@ -105,6 +105,7 @@ public class PersonManager : MonoBehaviour
         }
 
         ticketCounter.text = "Available Seats: " + GameManager.Instance.seatsAvailableCounter;
+        dayCounter.text = "Day left in the week:" + (GameManager.Instance.numberOfDayPerWeek - GameManager.Instance._dayCounter);
     }
 
     public void AcceptClicked()

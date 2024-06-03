@@ -74,8 +74,8 @@ public class WeeklyEventManager : MonoBehaviour
     private void StateHoliday()
     {
         CurrentGamplayEvent = ("State Holiday",
-            "This week is a state holiday. Policemen are nowhere to be seen. <br>Effect:<br>No suspicion will be accumulated this week");
-        GameManager.Instance.SetSusModifier(0);
+            "This week is a state holiday. Policemen are nowhere to be seen. <br>Effect:<br>Suspicion will be accumulated half as fast this week");
+        GameManager.Instance.SetSusModifier(0.5f);
         UIManager.Instance.ShowWeaklyEvent(CurrentGamplayEvent);
     }
 
