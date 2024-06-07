@@ -38,7 +38,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("ExplorationMusic1");
     }
 
     public void Play(string name)
